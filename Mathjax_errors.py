@@ -13,25 +13,34 @@ def main():
     root = '/projects/temporary/automates/er/gaurav/'
 
     for yr in [14, 15, 16, 17, 18]:
+
         year = '20' + str(yr)
-        logs_path = os.path.join(root, f'{year}/Logs/{year}_MathJax_MML_Log.log')
+
+        print('Currently working on logs file of:  ', year)
+
+        # make directory 'combine logs' -- to store all of the results
+        combine_logs_path = os.path.join(root, f'{year}/Logs/combine_logs')
+        if not os.path.exists(combine_logs_path):
+            subprocess.call(['mkdir', combine_logs_path])
+
+        logs_path = os.path.join(root, f'{year}/Logs/combine_logs/{year}_MathJax_MML_Log.log')
 
         (dict_token, dict_error, token_counter, error_counter) = Mjx_errors_and_not_working_tokens(logs_path)
 
         # dumping token/error dictionaries
-        json.dump(dict_token, open(os.path.join(root, f'{year}/Logs/not_working_tokens_dictionary.txt'), 'w'))
-        json.dump(dict_error, open(os.path.join(root, f'{year}/Logs/Mathjax_errors_dictionary.txt'),'w'))
+        json.dump(dict_token, open(os.path.join(root, f'{year}/Logs/combine_logs/not_working_tokens_dictionary.txt'), 'w'))
+        json.dump(dict_error, open(os.path.join(root, f'{year}/Logs/combine_logs/Mathjax_errors_dictionary.txt'),'w'))
 
-    # ranking tokens/errors based on the total number of equations affected
-    (sorted_token_counter, sorted_error_counter) = Ranking(token_counter, error_counter)
+        # ranking tokens/errors based on the total number of equations affected
+        (sorted_token_counter, sorted_error_counter) = Ranking(token_counter, error_counter)
 
-    # dumping counter dictionaries
-    json.dump(token_counter, open(os.path.join(root, f'{year}/Logs/tokens_counter_dictionary.txt'),'w'))
-    json.dump(error_counter, open(os.path.join(root, f'{year}/Logs/errors_counter_dictionary.txt'), 'w'))
+        # dumping counter dictionaries
+        json.dump(token_counter, open(os.path.join(root, f'{year}/Logs/combine_logs/tokens_counter_dictionary.txt'),'w'))
+        json.dump(error_counter, open(os.path.join(root, f'{year}/Logs/combine_logs/errors_counter_dictionary.txt'), 'w'))
 
-    # finding histogram distribution of token/error counter dictionaries
-    # It helps to get an idea of the errors/tokens that are affecting most of the eqns
-    Distribution(sorted_token_counter, sorted_error_counter)
+        # finding histogram distribution of token/error counter dictionaries
+        # It helps to get an idea of the errors/tokens that are affecting most of the eqns
+        Distribution(sorted_token_counter, sorted_error_counter)
 
 
 # finding 'not working' latex eqns and respective tokens
@@ -116,9 +125,15 @@ def Ranking(token_counter, error_counter):
 
 def Distribution(sorted_token_counter, sorted_error_counter):
 
+    plt.figure(1)
     plt.figure(figsize=(15,5))
     plt.bar(list(sorted_token_counter.keys()), sorted_token_counter.values(), color='g')
-    plt.show()
+    plt.savefig(os.path.join(root, f'{year}/Logs/combine_logs/token_histogram.png'))
+
+    plt.figure(2)
+    plt.figure(figsize=(15,5))
+    plt.bar(list(sorted_error_counter.keys()), sorted_error_counter.values(), color='b')
+    plt.savefig(os.path.join(root, f'{year}/Logs/combine_logs/error_histogram.png'))
 
 
 if __name__ == "__main__":
