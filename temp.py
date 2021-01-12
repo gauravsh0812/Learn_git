@@ -26,7 +26,7 @@ lock = Lock()
 
 def main():
 
-    for yr in [14, 15, 16, 17, 18]:
+    for yr in [15, 16, 17, 18]:
         for month in ['01', '02','03','04','05','06','07','08','09','10','11','12']:
 
             year, DIR = '20'+str(yr), str(yr)+month
