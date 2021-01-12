@@ -22,16 +22,6 @@ print('Starting at:  ', start_time)
 # Defining global lock
 lock = Lock()
 
-# Setting up Logger - To get log files
-Log_Format = '%(message)s'
-logFile_dst = os.path.join(args.source, f'{str(args.year)}/Logs')
-begin_month, end_month = str(args.directories[0]), str(args.directories[-1])
-logging.basicConfig(filename = os.path.join(logFile_dst, f'{begin_month}-{end_month}_Unicode_MML.log'),
-                    level = logging.DEBUG,
-                    format = Log_Format,
-                    filemode = 'w')
-
-Unicode_logger = logging.getLogger()
 
 
 def main():
@@ -39,8 +29,19 @@ def main():
     for yr in [14, 15, 16, 17, 18]:
         for month in ['01', '02','03','04','05','06','07','08','09','10','11','12']:
 
-            source_path = '/projects/temporary/automates/er/gaurav'
             year, DIR = '20'+str(yr), str(yr)+month
+            source_path = '/projects/temporary/automates/er/gaurav'
+
+            # Setting up Logger - To get log files
+            Log_Format = '%(message)s'
+            logFile_dst = os.path.join(source_path, f'{year}/Logs')
+            #begin_month, end_month = str(args.directories[0]), str(args.directories[-1])
+            logging.basicConfig(filename = os.path.join(logFile_dst, f'2015_16_17_18_Unicode_MML.log'),
+                                level = logging.DEBUG,
+                                format = Log_Format,
+                                filemode = 'w')
+
+            Unicode_logger = logging.getLogger()
 
             print('Directory running:  ', DIR)
 
