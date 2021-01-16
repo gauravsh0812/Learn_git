@@ -133,8 +133,8 @@ def Ranking(token_counter, error_counter):
     sorted_error_counter_tuples = OrderedDict(sorted(error_counter.items(), key=itemgetter(1)))
 
     # getting most common/top 10 tokens/errors by value
-    top10_tokens_tuples = dict(sorted(sorted_token_counter.items(), key = itemgetter(1), reverse = True)[:10])
-    top10_errors_tuples = dict(sorted(sorted_error_counter.items(), key = itemgetter(1), reverse = True)[:10])
+    top10_tokens_tuples = dict(sorted(sorted_token_counter_tuples.items(), key = itemgetter(1), reverse = True)[:10])
+    top10_errors_tuples = dict(sorted(sorted_error_counter_tuples.items(), key = itemgetter(1), reverse = True)[:10])
 
     return(sorted_token_counter_tuples, sorted_error_counter_tuples, top10_tokens_tuples, top10_errors_tuples)
 
