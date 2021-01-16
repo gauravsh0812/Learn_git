@@ -84,7 +84,7 @@ def Mjx_errors_and_not_working_tokens(log_file):
 
             # Appending the list of the eqn_paths for respective token
             if token in dict_token.keys():
-                if eqn_path in dict_token[token]:
+                if eqn_path not in dict_token[token]:
                     dict_token[token].append(eqn_path)
 
             else:
@@ -107,7 +107,7 @@ def Mjx_errors_and_not_working_tokens(log_file):
 
             # Appending the list of the eqn_paths for respective Mathjax error
             if error in dict_error.keys():
-                if eqn_path in dict_error[error]:
+                if eqn_path not in dict_error[error]:
                     dict_error[error].append(eqn_path)
 
             else:
