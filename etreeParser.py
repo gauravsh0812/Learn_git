@@ -91,8 +91,6 @@ def etree(args_array):
     etree_path = f'{args.source}/{str(args.year)}/{DIR}/etree'
     sample_etree_path = f'{args.source}/{str(args.year)}/{DIR}/sample_etree'
 
-    #if subDIR not in os.listdir(etree_path):
-
     for tyf in ['Large_MML', 'Small_MML']:
 
         tyf_path = os.path.join(subDIR_path, tyf)
