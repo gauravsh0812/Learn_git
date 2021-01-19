@@ -37,10 +37,10 @@ def main():
         (sorted_token_counter, sorted_error_counter, top10_tokens, top10_errors) = Ranking(token_counter, error_counter)
 
         # dumping counter dictionaries
-        json.dump(sorted_token_counter_tuples, open(os.path.join(root, f'{year}/Logs/combine_logs/tokens_counter.json'),'w'))
-        json.dump(sorted_error_counter_tuples, open(os.path.join(root, f'{year}/Logs/combine_logs/errors_counter.json'), 'w'))
-        json.dump(top10_tokens_tuples, open(os.path.join(root, f'{year}/Logs/combine_logs/top10_tokens.json'),'w'))
-        json.dump(top10_errors_tuples, open(os.path.join(root, f'{year}/Logs/combine_logs/top10_errors.json'), 'w'))
+        json.dump(sorted_token_counter, open(os.path.join(root, f'{year}/Logs/combine_logs/tokens_counter.json'),'w'))
+        json.dump(sorted_error_counter, open(os.path.join(root, f'{year}/Logs/combine_logs/errors_counter.json'), 'w'))
+        json.dump(top10_tokens, open(os.path.join(root, f'{year}/Logs/combine_logs/top10_tokens.json'),'w'))
+        json.dump(top10_errors, open(os.path.join(root, f'{year}/Logs/combine_logs/top10_errors.json'), 'w'))
 
         # finding histogram distribution of token/error counter dictionaries
         # It helps to get an idea of the errors/tokens that are affecting most of the eqns
@@ -127,12 +127,12 @@ def Ranking(token_counter, error_counter):
     print('Ranking now')
 
     # Sorted counters
-    sorted_token_counter_tuples = dict(sorted(token_counter.items(), key=itemgetter(1), reverse=True))
-    sorted_error_counter_tuples = dict(sorted(error_counter.items(), key=itemgetter(1), reverse=True))
+    sorted_token_counter = dict(sorted(token_counter.items(), key=itemgetter(1), reverse=True))
+    sorted_error_counter = dict(sorted(error_counter.items(), key=itemgetter(1), reverse=True))
 
     # getting most common/top 10 tokens/errors by value
-    top10_tokens_tuples = dict(sorted(token_counter.items(), key = itemgetter(1), reverse=True)[:10])
-    top10_errors_tuples = dict(sorted(error_counter.items(), key = itemgetter(1), reverse=True)[:10])
+    top10_tokens = dict(sorted(token_counter.items(), key = itemgetter(1), reverse=True)[:10])
+    top10_errors = dict(sorted(error_counter.items(), key = itemgetter(1), reverse=True)[:10])
 
     return(sorted_token_counter, sorted_error_counter, top10_tokens, top10_errors)
 
@@ -150,12 +150,13 @@ def Distribution(root, year, sorted_token_counter, sorted_error_counter, top10_t
         # Plotting and saving
         plt.figure(figsize=(30,10))
         plt.bar(*zip(*t.items()))
+        plt.xticks(rotation=90)
 
-        if t == sorted_token_counter_tuples:
+        if t == sorted_token_counter:
             plt.savefig(os.path.join(root, f'{year}/Logs/combine_logs/token_histogram.png'))
-        elif t == sorted_error_counter_tuples:
+        elif t == sorted_error_counter:
             plt.savefig(os.path.join(root, f'{year}/Logs/combine_logs/error_histogram.png'))
-        elif t == top10_tokens_tuples:
+        elif t == top10_tokens:
             plt.savefig(os.path.join(root, f'{year}/Logs/combine_logs/top10_token_histogram.png'))
         else:
             plt.savefig(os.path.join(root, f'{year}/Logs/combine_logs/top10_error_histogram.png'))
