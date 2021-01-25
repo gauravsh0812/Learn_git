@@ -4,6 +4,7 @@ import os, subprocess
 import matplotlib.pyplot as plt
 import multiprocessing
 import argparse
+import string
 
 from datetime import datetime
 from multiprocessing import Pool, Lock
@@ -24,9 +25,9 @@ def main():
         year = '20' + str(yr)
         subprocess.call(['mkdir', f'/projects/temporary/automates/er/gaurav/{year}/eqn_token_distribution'])
 
-        for m in ['01'];#,'02','03','04','05','06','07','08','09','10','11','12']:
+        for m in ['01']:#,'02','03','04','05','06','07','08','09','10','11','12']:
             month = str(yr)+m
-
+            print(month)
             subprocess.call(['mkdir', f'/projects/temporary/automates/er/gaurav/{year}/eqn_token_distribution/{month}'])
 
             latex_eqn_path = f'/projects/temporary/automates/er/gaurav/{year}/{month}/latex_equations'
@@ -40,19 +41,21 @@ def main():
                     tyf_path = os.path.join(etree_path, f'{folder}/{tyf}')
 
                     for text_file in os.listdir(tyf_path):
-                        temp.append([year, month, folder, tyf, text_file, latex_eqn_path])
+                        temp_args.append([year, month, folder, tyf, text_file, latex_eqn_path])
 
             with Pool(multiprocessing.cpu_count()-10) as pool:
-                result = pool.map(count_token, temp)
+                result = pool.map(count_token, temp_args)
 
     # creating bins -- distribution
     #bin_plot()
 
 def count_token(args_list):
+    
+    global aplhabet_Set
 
     # unpacking args_list
     (year, month, folder, tyf, text_file, latex_eqn_path) = args_list
-
+    
     tyf_le = 'Small_eqns' if tyf == 'Small_MML' else 'Large_eqn'
     subprocess.call(['mkdir', f'/projects/temporary/automates/er/gaurav/{year}/eqn_token_distribution/{month}/{folder}/{tyf_le}'])
 
