@@ -25,7 +25,7 @@ def main():
         year = '20' + str(yr)
         subprocess.call(['mkdir', f'/projects/temporary/automates/er/gaurav/{year}/eqn_token_distribution'])
 
-        for m in ['01']:#,'02','03','04','05','06','07','08','09','10','11','12']:
+        for m in ['01','02','03','04','05','06','07','08','09','10','11','12']:
             month = str(yr)+m
             print(month)
             subprocess.call(['mkdir', f'/projects/temporary/automates/er/gaurav/{year}/eqn_token_distribution/{month}'])
@@ -56,8 +56,11 @@ def count_token(args_list):
     # unpacking args_list
     (year, month, folder, tyf, text_file, latex_eqn_path) = args_list
     
-    tyf_le = 'Small_eqns' if tyf == 'Small_MML' else 'Large_eqn'
-    subprocess.call(['mkdir', f'/projects/temporary/automates/er/gaurav/{year}/eqn_token_distribution/{month}/{folder}/{tyf_le}'])
+    #print(folder)
+
+    tyf_le = 'Small_eqns' if tyf == 'Small_MML' else 'Large_eqns'
+    if not os.path.exists(f'/projects/temporary/automates/er/gaurav/{year}/eqn_token_distribution/{month}/{folder}/{tyf_le}'):
+        subprocess.call(['mkdir', f'/projects/temporary/automates/er/gaurav/{year}/eqn_token_distribution/{month}/{folder}/{tyf_le}'])
 
     file_name = text_file.split('.')[0]
     original_eqn_path = os.path.join(latex_eqn_path, f'{folder}/{tyf_le}/{file_name}.txt')
