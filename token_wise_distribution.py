@@ -21,7 +21,7 @@ alphabet_Set = list(string.ascii_lowercase)+list(string.ascii_uppercase)
 
 def main():
 
-    for yr in [14]:#, 15, 16, 17, 18]:
+    for yr in [15, 16, 17, 18]:
         year = '20' + str(yr)
         subprocess.call(['mkdir', f'/projects/temporary/automates/er/gaurav/{year}/eqn_token_distribution'])
 
