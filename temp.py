@@ -1,88 +1,269 @@
-import sys, os, json, glob
-import numpy as np
-import PIL
-from PIL import Image
 
-def main_parallel(filename, postfix, output_filename, crop_blank_default_size, pad_size, buckets, downsample_ratio):
-    #filename, postfix, output_filename, crop_blank_default_size, pad_size, buckets, downsample_ratio = l
-    postfix_length = len(postfix)
-    status = crop_image(filename, output_filename, crop_blank_default_size)
-    if not status:
-        print('%s is blank, crop a white image of default size!'%filename)
-    status = pad_group_image(output_filename, output_filename, pad_size, buckets)
-    if not status:
-        print('%s (after cropping and padding) is larger than the largest provided bucket size, left unchanged!'%filename)
-    status = downsample_image(output_filename, output_filename, downsample_ratio)
+# CONVERT LaTeX EQUATION TO MathML CODE USING MathJax
+import requests
+import subprocess, os
+import json
+import argparse
+import multiprocessing
+import logging
 
-def crop_image(img, output_path, default_size=None):
-    old_im = Image.open(img).convert('L')
-    img_data = np.asarray(old_im, dtype=np.uint8) # height, width
-    nnz_inds = np.where(img_data!=255)
-    if len(nnz_inds[0]) == 0:
-        if not default_size:
-            old_im.save(output_path)
-            return False
+from datetime import datetime
+from multiprocessing import Pool, Lock, TimeoutError
+
+
+# Printing starting time
+print(' ')
+start_time = datetime.now()
+print('Starting at:  ', start_time)
+
+# Defining global lock
+lock = Lock()
+
+# Argument Parser
+parser = argparse.ArgumentParser(description='Parsing LaTeX equations from arxiv source codes')
+parser.add_argument('-src', '--source', type=str, metavar='', required=True, help='Source path to arxiv folder')
+parser.add_argument('-dir', '--directories', nargs="+",type=int, metavar='', required=True, help='directories to run seperated by space')
+parser.add_argument('-yr', '--year', type=int, metavar='', required=True, help='year of the directories')
+
+group = parser.add_mutually_exclusive_group()
+group.add_argument('-v', '--verbose', action='store_true', help='print verbose')
+args = parser.parse_args()
+
+def main():
+
+    for DIR in args.directories:
+
+        src_path = args.source
+        year, DIR = str(args.year), str(DIR)
+        root = os.path.join(src_path, f'{year}/{DIR}')
+
+        print('Currently running:  ',DIR)
+
+        # Path to image directory
+        folder_images = os.path.join(root, "latex_images")
+
+        # Path to directory contain MathML eqns
+        mml_dir = os.path.join(root, "Mathjax_mml")
+
+        if not os.path.exists(mml_dir):
+            subprocess.call(['mkdir', mml_dir])
+
+        MML_folder_list = os.listdir(mml_dir)
+
+        temp = []
+
+        for folder in os.listdir(folder_images):
+            if folder == '1401.3751':
+            #if folder not in MML_folder_list:
+
+                # Creating Macros dictionary
+                keyword_Macro_dict, keyword_dict = Creating_Macro_DMO_dictionaries(root, folder)
+                temp.append([DIR, root, mml_dir, folder_images, folder, keyword_Macro_dict, keyword_dict])
+
+        with Pool(multiprocessing.cpu_count()-10) as pool:
+            result = pool.map(Creating_final_equations, temp)
+
+def Creating_Macro_DMO_dictionaries(root, folder):
+
+    Macro_file = os.path.join(root, f"latex_equations/{folder}/Macros_paper.txt")
+    with open(Macro_file, 'r') as file:
+        Macro = file.readlines()
+        file.close()
+    keyword_Macro_dict={}
+    for i in Macro:
+        ibegin, iend = i.find('{'), i.find('}')
+        keyword_Macro_dict[i[ibegin+1 : iend]] = i
+
+    # Creating DMO dictionary
+    DMO_file = os.path.join(root, f"latex_equations/{folder}/DeclareMathOperator_paper.txt")
+    with open(DMO_file, 'r') as file:
+        DMO = file.readlines()
+        file.close()
+    keyword_dict={}
+    for i in DMO:
+        ibegin, iend = i.find('{'), i.find('}')
+        keyword_dict[i[ibegin+1 : iend]] = i
+
+    return(keyword_Macro_dict, keyword_dict)
+
+
+def Creating_final_equations(args_list):
+
+    global lock
+
+    # Unpacking the args_list
+    (DIR, root, mml_dir, folder_images, folder, keyword_Macro_dict, keyword_dict) = args_list
+
+    # Creating folder for MathML codes for specific file
+    mml_folder = os.path.join(mml_dir, folder)
+
+    # Creating folder for Large and Small eqns
+    Large_MML = os.path.join(mml_folder, "Large_MML")
+    Small_MML = os.path.join(mml_folder, "Small_MML")
+    for F in [mml_folder, Large_MML, Small_MML]:
+        if not os.path.exists(F):
+            subprocess.call(['mkdir', F])
+
+    #Appending all the eqns of the folder/paper to Latex_strs_json
+    #along with their respective Macros and Declare Math Operator commands.
+
+    # Creating array of final eqns
+    Large_eqns = os.path.join(folder_images, f"{folder}/Large_eqns")
+    Small_eqns = os.path.join(folder_images, f"{folder}/Small_eqns")
+
+    for type_of_folder in [Large_eqns, Small_eqns]:
+
+        for index, eqn in enumerate(os.listdir(type_of_folder)):
+
+            if '.png' in eqn:
+
+                try:
+                    file_name = eqn.split("-")[0].split(".")[0]
+
+                    EqnsType = "Large_eqns" if type_of_folder == Large_eqns else "Small_eqns"
+                    file_path = os.path.join(root, f"latex_equations/{folder}/{EqnsType}/{file_name}.txt")
+
+                    final_eqn = ""
+
+                    text_eqn = open(file_path, "r").readlines()[0]
+                    Macros_in_eqn = [kw for kw in keyword_Macro_dict.keys() if kw in text_eqn]
+                    DMOs_in_eqn = [kw for kw in keyword_dict.keys() if kw in text_eqn]
+
+                    # Writing Macros, DMOs, and text_eqn as one string
+                    MiE, DiE = "", ""
+                    for macro in Macros_in_eqn:
+                        MiE = MiE + keyword_Macro_dict[macro] + " "
+                    for dmo in DMOs_in_eqn:
+                        DiE = DiE +  keyword_dict[dmo] + " "
+
+                    string = MiE + DiE + text_eqn
+
+                    # Removing unsupported keywords
+                    for tr in ["\\ensuremath", "\\xspace", "\\aligned", "\\endaligned", "\\span"]:
+                        string = string.replace(tr, "")
+
+                    # Correcting keywords written in an incorrect way
+                    for sub in string.split(" "):
+                        if "cong" in sub:
+                            sub = sub.replace("\\cong", "{\\cong}")
+                        if "mathbb" in sub:
+                            if sub[sub.find("\\mathbb")+7] != "{":
+                                mathbb_parameter = sub[sub.find("\\newcommand")+12 : sub.find("}")].replace("\\", "")
+                                sub = sub[:sub.find("\\mathbb")+7] + "{" + mathbb_parameter + "}" + sub[sub.find("\\mathbb")+7+len(mathbb_parameter):]
+                        if "mathbf" in sub:
+                            if sub[sub.find("\\mathbf")+7] != "{":
+                                mathbf_parameter = sub[sub.find("\\newcommand")+12 : sub.find("}")].replace("\\", "")
+                                sub = sub[:sub.find("\\mathbf")+7] + "{" + mathbf_parameter + "}" + sub[sub.find("\\mathbf")+7+len(mathbf_parameter):]
+
+                        final_eqn += sub + " "
+
+                    # Printing the final equation string
+                    if args.verbose:
+                        lock.acquire()
+                        print("final equation is  ", final_eqn)
+                        lock.release()
+
+                    MML = Large_MML if type_of_folder == Large_eqns else Small_MML
+
+                    MjxMML(file_name, folder, final_eqn, type_of_folder, MML)
+
+                except:
+                    lock.acquire()
+                    if args.verbose:
+                      print( " " )
+                      print(f' {type_of_folder}/{file_name}: can not be converted.')
+                      print( " =============================================================== " )
+
+                    #logger.warning(f'{type_of_folder}/{file_name}: can not be converted.')
+                    lock.release()
+
+
+def MjxMML(file_name, folder, final_eqn, type_of_folder, mml_path):
+
+    global lock
+
+    # Define the webservice address
+    webservice = "http://localhost:8081"
+    # Load the LaTeX string data
+    eqn=final_eqn
+    print(eqn)
+
+    # Translate and save each LaTeX string using the NodeJS service for MathJax
+    res = requests.post(
+        f"{webservice}/tex2mml",
+        headers={"Content-type": "application/json"},
+        json={"tex_src": json.dumps(eqn)},
+         )
+    print(res.text)
+    if args.verbose:
+        lock.acquire()
+        print(f'Converting latex equation to MathML using MathJax webserver of {file_name}....')
+        print(' ')
+        print(f'Response of the webservice request: {res.text}')
+        lock.release()
+
+    # Capturing the keywords not supported by MathJax
+    if "FAILED" in res.content.decode("utf-8"):
+        # Just to check errors
+        TeXParseError = res.content.decode("utf-8").split("::")[1]
+
+        # Logging incorrect/ unsupported keywords along with their equations
+        if "Undefined control sequence" in TeXParseError:
+            Unsupported_Keyword = TeXParseError.split("\\")[-1]
+
+            lock.acquire()
+            if args.verbose:
+                print(f'{type_of_folder}/{file_name}:{Unsupported_Keyword} is either not supported by MathJax or incorrectly written.')
+
+            #logger.warning(f'{type_of_folder}/{file_name}:{Unsupported_Keyword} is either not supported by MathJax or incorrectly written.')
+            lock.release()
+
+        elif "TypeError: Cannot read property 'root' of undefined" in TeXParseError:
+            lock.acquire()
+            print(folder)
+            #logger.warning(f'{type_of_folder}/{file_name}:{TeXParseError} -- Math Processing Error: Maximum call stack size exceeded. Killing the process and server.')
+            lock.release()
+
+        # Logging errors other than unsupported keywords
         else:
-            assert len(default_size) == 2, default_size
-            x_min,y_min,x_max,y_max = 0,0,default_size[0],default_size[1]
-            old_im = old_im.crop((x_min, y_min, x_max+1, y_max+1))
-            old_im.save(output_path)
-            return False
-    y_min = np.min(nnz_inds[0])
-    y_max = np.max(nnz_inds[0])
-    x_min = np.min(nnz_inds[1])
-    x_max = np.max(nnz_inds[1])
-    old_im = old_im.crop((x_min, y_min, x_max+1, y_max+1))
-    old_im.save(output_path)
-    return True
+            lock.acquire()
+            if args.verbose:
+                print(f'{type_of_folder}/{file_name}:{TeXParseError} is an error produced by MathJax webserver.')
 
-def pad_group_image(img, output_path, pad_size, buckets):
-    PAD_TOP, PAD_LEFT, PAD_BOTTOM, PAD_RIGHT = pad_size
-    old_im = Image.open(img)
-    old_size = (old_im.size[0]+PAD_LEFT+PAD_RIGHT, old_im.size[1]+PAD_TOP+PAD_BOTTOM)
-    j = -1
-    for i in range(len(buckets)):
-        if old_size[0]<=buckets[i][0] and old_size[1]<=buckets[i][1]:
-            j = i
-            break
-    if j < 0:
-        new_size = old_size
-        new_im = Image.new("RGB", new_size, (255,255,255))
-        new_im.paste(old_im, (PAD_LEFT,PAD_TOP))
-        new_im.save(output_path)
-        return False
-    new_size = buckets[j]
-    new_im = Image.new("RGB", new_size, (255,255,255))
-    new_im.paste(old_im, (PAD_LEFT,PAD_TOP))
-    new_im.save(output_path)
-    return True
+            #logger.warning(f'{type_of_folder}/{file_name}:{TeXParseError} is an error produced by MathJax webserver.')
+            lock.release()
 
-def downsample_image(img, output_path, ratio):
-    assert ratio>=1, ratio
-    if ratio == 1:
-        return True
-    old_im = Image.open(img)
-    old_size = old_im.size
-    new_size = (int(old_size[0]/ratio), int(old_size[1]/ratio))
+    else:
+        # Cleaning and Dumping the MathML strings to JSON file
+        MML = CleaningMML(res.text)
 
-    new_im = old_im.resize(new_size, PIL.Image.LANCZOS)
-    new_im.save(output_path)
-    return True
+        if args.verbose:
+            lock.acquire()
+            print(f"writing {file_name}")
+            lock.release()
+
+        with open(os.path.join(mml_path, f"{file_name}.txt"), "w") as MML_output:
+            MML_output.write(MML)
+            MML_output.close()
+
+def CleaningMML(res):
+
+    # Removing "\ and /" at the begining and at the end
+    res = res[res.find("<"):]
+    res = res[::-1][res[::-1].find(">"):]
+    res = res[::-1]
+
+    # Removing "\\n"
+    res = res.replace(">\\n", ">")
+    return(res)
 
 
-def main(args):
+if __name__ == "__main__":
+    main()
 
-    output_dir = '/home/gauravs/Automates/temp/Learn_git/cropped_eqn69.png'
-    input_dir = '/projects/temporary/automates/er/gaurav/2014/1401/latex_images/1401.3339/Large_eqns/eqn69.png0001-1.png'
-    postfix = '.png'
-    crop_blank_default_size = [600,60]
-    pad_size = [8,8,8,8]
-    buckets = [[240, 100], [320, 80], [400, 80], [400, 100], [480, 80], [480, 100], [560, 80], [560, 100], [640, 80], [640, 100], [720, 80], [720, 100], [720, 120], [720, 200], [800, 100], [800, 320], [1000, 200], [1000, 400], [1200, 200], [1600, 200], [1600, 1600]]
-    downsample_ratio = 2.
-    filename = input_dir
-    main_parallel(filename, postfix, output_dir, crop_blank_default_size, pad_size, buckets, downsample_ratio)
-
-if __name__ == '__main__':
-    main(sys.argv[1:])
+    # Printing stoping time
     print(' ')
-    print('completed!')
+    stop_time = datetime.now()
+    print('Stoping at:  ', stop_time)
+    print(' ')
+    print('LaTeX-MathML conversion has completed.')
