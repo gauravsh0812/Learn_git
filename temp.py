@@ -1,9 +1,10 @@
 import sys, os, json, glob
 import numpy as np
+import PIL
 from PIL import Image
 
-def main_parallel(l):
-    filename, postfix, output_filename, crop_blank_default_size, pad_size, buckets, downsample_ratio = l
+def main_parallel(filename, postfix, output_filename, crop_blank_default_size, pad_size, buckets, downsample_ratio):
+    #filename, postfix, output_filename, crop_blank_default_size, pad_size, buckets, downsample_ratio = l
     postfix_length = len(postfix)
     status = crop_image(filename, output_filename, crop_blank_default_size)
     if not status:
@@ -74,11 +75,11 @@ def main(args):
     output_dir = '/home/gauravs/Automates/temp/Learn_git/cropped_eqn69.png'
     input_dir = '/projects/temporary/automates/er/gaurav/2014/1401/latex_images/1401.3339/Large_eqns/eqn69.png0001-1.png'
     postfix = '.png'
-    crop_blank_default_size = '[600,60]'
-    pad_size = '[8,8,8,8]'
-    buckets = '[[240, 100], [320, 80], [400, 80], [400, 100], [480, 80], [480, 100], [560, 80], [560, 100], [640, 80], [640, 100], [720, 80], [720, 100], [720, 120], [720, 200], [800, 100], [800, 320], [1000, 200], [1000, 400], [1200, 200], [1600, 200], [1600, 1600]]'
+    crop_blank_default_size = [600,60]
+    pad_size = [8,8,8,8]
+    buckets = [[240, 100], [320, 80], [400, 80], [400, 100], [480, 80], [480, 100], [560, 80], [560, 100], [640, 80], [640, 100], [720, 80], [720, 100], [720, 120], [720, 200], [800, 100], [800, 320], [1000, 200], [1000, 400], [1200, 200], [1600, 200], [1600, 1600]]
     downsample_ratio = 2.
-    filenames = input_dir
+    filename = input_dir
     main_parallel(filename, postfix, output_dir, crop_blank_default_size, pad_size, buckets, downsample_ratio)
 
 if __name__ == '__main__':
