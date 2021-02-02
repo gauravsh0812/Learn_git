@@ -57,14 +57,15 @@ def main():
             subprocess.call(['mkdir', mml_dir])
 
         MML_folder_list = os.listdir(mml_dir)
-
+        
         temp = []
 
         for folder in os.listdir(single_line_equations):
-            #if folder not in MML_folder_list:
-            if folder == '1401.3751':
+            if folder not in MML_folder_list:
+            #if folder == '1401.3751':
                 temp.append([os.path.join(single_line_equations, folder), folder, mml_dir])
 
+        print('temp done!')
         with Pool(multiprocessing.cpu_count()-10) as pool:
             result = pool.map(MjxMML, temp)
 
@@ -74,6 +75,11 @@ def MjxMML(l):
     global lock
 
     SLE_folder_path, folder, mml_dir = l
+    
+    lock.acquire()
+    print(folder)
+    lock.release()
+
     for SLE_tyf in os.listdir(SLE_folder_path):
         tyf_mml = 'Small_MML' if SLE_tyf == 'Small_eqns' else 'Large_MML'
         SLE_mml_folder_path = os.path.join(mml_dir, folder)
@@ -86,7 +92,11 @@ def MjxMML(l):
         for file_name in os.listdir(SLE_tyf_path):
             file_path =os.path.join(SLE_tyf_path, file_name)
 
-            eqn = open(file_path, 'r').readlines()
+            eqn = open(file_path, 'r').readlines()[0]
+            
+            lock.acquire()
+            print(eqn)
+            lock.release()
 
             # Define the webservice address
             webservice = "http://localhost:8081"
@@ -97,6 +107,8 @@ def MjxMML(l):
                 headers={"Content-type": "application/json"},
                 json={"tex_src": json.dumps(eqn)},
                  )
+            
+            print(res.content)
             '''
             # Capturing the keywords not supported by MathJax
             if "FAILED" in res.content.decode("utf-8"):
@@ -134,7 +146,7 @@ def MjxMML(l):
             # Cleaning and Dumping the MathML strings to JSON file
             MML = CleaningMML(res.text)
             SLE_mml_file_path = os.path.join(SLE_mml_tyf_path, file_name)
-            with open(os.path.join(SLE_mml_file_path, "w") as MML_output:
+            with open(SLE_mml_file_path, "w") as MML_output:
                 MML_output.write(MML)
                 MML_output.close()
 
