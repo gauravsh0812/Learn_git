@@ -61,7 +61,8 @@ def main():
         temp = []
 
         for folder in os.listdir(single_line_equations):
-            if folder not in MML_folder_list:
+            #if folder not in MML_folder_list:
+            if folder == '1401.3751':
                 temp.append([os.path.join(single_line_equations, folder), folder, mml_dir])
 
         with Pool(multiprocessing.cpu_count()-10) as pool:
