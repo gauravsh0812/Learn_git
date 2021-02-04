@@ -43,8 +43,8 @@ lock = Lock()
 
 # Creating 'etree' directory
 for directory in args.directories:
-    etreePath = f'{args.source}/{str(args.year)}/{str(directory)}/SLE/SLE_etree'
-    sample_etreePath = f'{args.source}/{str(args.year)}/{str(directory)}/SLE/SLE_sample_etree'
+    SLE_etreePath = f'{args.source}/{str(args.year)}/{str(directory)}/SLE/SLE_etree'
+    SLE_sample_etreePath = f'{args.source}/{str(args.year)}/{str(directory)}/SLE/SLE_sample_etree'
     for path in [SLE_etreePath, SLE_sample_etreePath]:
         if not os.path.exists(path):
             subprocess.call(['mkdir', path])
@@ -72,8 +72,8 @@ def etree(args_array):
     # Unpacking the args array
     (DIR, subDIR, subDIR_path) = args_array
 
-    etree_path = f'{args.source}/{str(args.year)}/{DIR}/etree'
-    sample_etree_path = f'{args.source}/{str(args.year)}/{DIR}/sample_etree'
+    etree_path = f'{args.source}/{str(args.year)}/{DIR}/SLE/SLE_etree'
+    sample_etree_path = f'{args.source}/{str(args.year)}/{DIR}/SLE/SLE_sample_etree'
     for tyf in os.listdir(subDIR_path):
         tyf_path = os.path.join(subDIR_path, tyf)
 
@@ -87,7 +87,7 @@ def etree(args_array):
                 # converting text file to xml formatted file
                 tree1 = ElementTree()
                 tree1.parse(FILE_path)
-                sample_path = f'{args.source}/{str(args.year)}/{DIR}/sample_etree/{subDIR}/{tyf}/{FILE_name}_sample.xml'
+                sample_path = f'{args.source}/{str(args.year)}/{DIR}/SLE/SLE_sample_etree/{subDIR}/{tyf}/{FILE_name}_sample.xml'
 
                 # writing the sample files that will be used to render etree
                 tree1.write(sample_path)
