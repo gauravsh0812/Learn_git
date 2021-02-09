@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # tokenize latex formulas
-import sys, os, argparse, logging, multiprocessing, subprocess, shutil
+import sys, os, argparse, logging, multiprocessing, subprocess, shutil, glob
 
 from datetime import datetime
 from multiprocessing import Pool, Lock, TimeoutError
@@ -56,10 +56,10 @@ def main(args):
             os.makedirs(output_dir)
 
         temp=[]
-        for folder in os.listdir(im2markup_dir):
+        for folder in os.listdir(input_dir):
             folder_path = os.path.join(input_dir, folder)
             for tyf in os.listdir(folder_path):
-                tyf_path = os.path.join(folder-path, tyf)
+                tyf_path = os.path.join(folder_path, tyf)
                 # output folder
                 output_folder = os.path.join(output_dir, folder)
                 output_tyf = os.path.join(output_folder, tyf)
@@ -67,21 +67,21 @@ def main(args):
                     if not os.path.exists(F):
                         os.makedirs(F)
 
-                filenames = glob.glob(os.path.join(tyf-path, '*'+'.txt'))
+                filenames = glob.glob(os.path.join(tyf_path, '*'+'.txt'))
                 for filename in filenames:
-                    temp.append([filename, os.path.join(output_tyf, filename)])
+                    temp.append([filename, os.path.join(output_tyf, filename), parameters])
 
         with Pool(multiprocessing.cpu_count()-10) as pool:
             results = pool.map(main_parallel, temp)
 
 def main_parallel(l):
-    input_file, output_file = l
+    input_file, output_file, parameters= l
 
     assert os.path.exists(input_file), input_file
     cmd = "perl -pe 's|hskip(.*?)(cm\\|in\\|pt\\|mm\\|em)|hspace{\\1\\2}|g' %s > %s"%(input_file, output_file)
     ret = subprocess.call(cmd, shell=True)
-    if ret != 0:
-        logger.error('FAILED: %s'%cmd)
+    #if ret != 0:
+        #logger.error('FAILED: %s'%cmd)
 
     temp_file = output_file + '.tmp'
     with open(temp_file, 'w') as fout:
@@ -92,8 +92,8 @@ def main_parallel(l):
     cmd = "cat %s | node scripts/preprocessing/preprocess_latex.js %s > %s "%(temp_file, parameters.mode, output_file)
     ret = subprocess.call(cmd, shell=True)
     os.remove(temp_file)
-    if ret != 0:
-        logger.error('FAILED: %s'%cmd)
+    #if ret != 0:
+        #logger.error('FAILED: %s'%cmd)
     temp_file = output_file + '.tmp'
     shutil.move(output_file, temp_file)
     with open(temp_file) as fin:
