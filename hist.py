@@ -16,7 +16,9 @@ seventy_to_eighty=0
 eighty_to_ninety=0
 ninety_to_hundred=0
 
+i=0
 for s in scores:
+    i+=1
     s=s.replace(',', '')
     if 0<=float(s)<10:
         zero_to_ten+=1
@@ -40,16 +42,24 @@ for s in scores:
         ninety_to_hundred+=1
 
 Dict={}
-Dict['0_10']=zero_to_ten
-Dict['10_20']=ten_to_twenty
-Dict['20_30']=twenty_to_thirty
-Dict['30_40']=thirty_to_fourty
-Dict['40_50']=fourty_to_fifty
-Dict['50_60']=fifty_to_sixty
-Dict['60_70']=sixty_to_seventy
-Dict['70_80']=seventy_to_eighty
-Dict['80_90']=eighty_to_ninety
-Dict['90_100']=ninety_to_hundred
+Dict['0-10']=zero_to_ten
+Dict['10-20']=ten_to_twenty
+Dict['20-30']=twenty_to_thirty
+Dict['30-40']=thirty_to_fourty
+Dict['40-50']=fourty_to_fifty
+Dict['50-60']=fifty_to_sixty
+Dict['60-70']=sixty_to_seventy
+Dict['70-80']=seventy_to_eighty
+Dict['80-90']=eighty_to_ninety
+Dict['90-100']=ninety_to_hundred
 
+
+plt.figure(figsize=(8,10))
 plt.bar(list(Dict.keys()), Dict.values(), color='g')
+plt.xlabel('BLEU scores')
+plt.ylabel('#eqns')
+plt.xticks(rotation=30)
 plt.show()
+plt.savefig('histogram.png')
+
+print(i)
