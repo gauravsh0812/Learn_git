@@ -14,8 +14,9 @@ while i <100:
     temp[f'{i}_to_{i+5}'] = c
     i=i+5
 
+print(temp)
 plt.figure(figsize=(15,6))
 plt.bar(range(len(temp)), list(temp.values()), align='center')
 plt.xlabel('BLEU SCORE')
 plt.ylabel('# OF EQNS')
-plt.savefig('BLEU_distribution.png')
+plt.savefig('BLEU_distribution_1.png')
