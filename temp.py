@@ -23,39 +23,27 @@ if __name__ == '__main__':
     # json_data --> array of the dictionaries in a format like {'src': ---latex eqn---, 'mml': MathML code}
     os.chdir('/projects/temporary/automates/er/gaurav')
     i=60
-    while i<100:
-        f = open(f'score-{i}-{i+5}.txt', 'r').readlines()
-        json_data = []
-        #temp_dict={}
-        #for idx, v in enumerate(f):
-        num = 1
-        vindex=0
-        while num<25:
-            temp_dict={}
-            v=f[vindex]
-            if v != '{' and v!= '}':
-                if 'tgt' in v:
-                    temp_dict['eqn_num'] = num
-                    temp_dict['src'] = v[5:]
-                    flag = True
-                    while flag:
-                      t=1
-                      v = f[vindex+t]
-                      if 'pred' in v:
-                          temp_dict['mml']=v[6:]
-                          flag = False
-                      else: t+=1
+    f = open(f'score-{i}-{i+5}.txt', 'r').readlines()
+    n=1
+    flag=False
+    json_data=[]
 
-            vindex=vindex+t
-            json_data.append(temp_dict)
-        #print(json_data[0:5])
+    while n<25:
+      for line in f:
+        if not flag:
+          if 'tgt' in line:
+            src = line[5:]
+            flag = True
+        if flag:
+          if 'pred' in line:
+            mml = line[6:]
+            flag=False
 
-        new_json = []
-        for j in json_data:
-            if j != {}:
-                if 'eqn_num' in j:
+            temp={}
+            temp['eqn_num'] = n
+            temp['src'] = src
+            temp['mml']=mml
+            n+=1
+            json_data.append(temp)
 
-
-
-        i+=5
-        json2js(json_data, f'JS/score-{i}-{i+5}.js')
+    json2js(json_data, f'JS/score-{i}-{i+5}.js')
