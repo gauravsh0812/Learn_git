@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import os
 
 def json2js(json_data, output_file, var_name='eqn_src'):
@@ -21,29 +19,22 @@ def json2js(json_data, output_file, var_name='eqn_src'):
 
 if __name__ == '__main__':
     # json_data --> array of the dictionaries in a format like {'src': ---latex eqn---, 'mml': MathML code}
-    os.chdir('/projects/temporary/automates/er/gaurav')
-    i=60
-    f = open(f'score-{i}-{i+5}.txt', 'r').readlines()
-    n=1
-    flag=False
-    json_data=[]
-
-    while n<25:
-      for line in f:
-        if not flag:
+    #os.chdir('/projects/temporary/automates/er/gaurav')
+    f = open('/content/score-90-95.txt', 'r').readlines()
+    tgt = []
+    pred =[]
+    for line in f:
+      if line!=' ':
+        if line!='{' and line!='}' and line!='}{':
           if 'tgt' in line:
-            src = line[5:]
-            flag = True
-        if flag:
+            tgt.append(line[5:])
           if 'pred' in line:
-            mml = line[6:]
-            flag=False
+            pred.append(line[6:])
 
-            temp={}
-            temp['eqn_num'] = n
-            temp['src'] = src
-            temp['mml']=mml
-            n+=1
-            json_data.append(temp)
-
-    json2js(json_data, f'JS/score-{i}-{i+5}.js')
+    json_data = []
+    for idx, (t, p) in enumerate(zip(tgt, pred)):
+      temp = {}
+      temp['eqn_num'] = idx
+      temp['src']=t
+      temp['mml']=p
+      json_data.append(temp)
