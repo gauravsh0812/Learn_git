@@ -14,7 +14,7 @@ while i <100:
     temp[f'{i}_to_{i+5}'] = c
     i=i+5
 
-#print(temp)
+print(temp)
 plt.figure(figsize=(20,6))
 #plt.bar(range(len(temp)), list(temp.values()), align='center')
 plt.bar(temp.keys(), temp.values(), color='g')
