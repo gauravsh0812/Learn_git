@@ -1,40 +1,26 @@
-import os
+import os, subprocess
 
-def json2js(json_data, output_file, var_name='eqn_src'):
-    with open(output_file, 'w') as fout:
-        fout.write(f'{var_name} = [\n')
+os.chdir('/projects/temporary/automates/er/gaurav')
+pred = open('pred.txt', 'r').readlines()
+tgt = open('tgt-test.txt', 'r').readlines()
 
-        for i, datum in enumerate(json_data):
-            #print(datum)
+pred_gram = {}
+tgt_gram = {}
 
-            fout.write('  {\n')
-            fout.write(f'    eqn_num: {repr(datum["eqn_num"])},\n')
-            fout.write(f'    src: {repr(datum["src"])},\n')
-            fout.write(f'    mml: {repr(datum["mml"])}\n')
-            fout.write('  }')
-            if i < len(json_data):
-                fout.write(',')
-            fout.write('\n')
-        fout.write('];')
+for t,p in zip(tgt, pred):
+  temp_pred = open('temp_pred', 'w')
+  temp_tgt = open('temp_tgt', 'w')
+  temp_pred.write(p)
+  temp_tgt.write(t)
+  temp_pred.close()
+  temp_tgt.close()
 
-if __name__ == '__main__':
-    # json_data --> array of the dictionaries in a format like {'src': ---latex eqn---, 'mml': MathML code}
-    #os.chdir('/projects/temporary/automates/er/gaurav')
-    f = open('/content/score-90-95.txt', 'r').readlines()
-    tgt = []
-    pred =[]
-    for line in f:
-      if line!=' ':
-        if line!='{' and line!='}' and line!='}{':
-          if 'tgt' in line:
-            tgt.append(line[5:])
-          if 'pred' in line:
-            pred.append(line[6:])
+  metric = subprocess.check_output('perl multi-bleu.perl %s < %s'%('temp_tgt.txt', 'temp_pred.txt'), shell=True)
 
-    json_data = []
-    for idx, (t, p) in enumerate(zip(tgt, pred)):
-      temp = {}
-      temp['eqn_num'] = idx
-      temp['src']=t
-      temp['mml']=p
-      json_data.append(temp)
+  gram = float(metric.split()[4].split('/')[-1])
+  tgt_gram[len(t.split())] = gram
+  pred_gram[len(p.split())]=gram
+
+import json
+json.dump(pred_gram, open('pred_gram.txt', 'w'))
+json.dump(tgt_gram, open('tgt_gram.txt', 'w'))
