@@ -1,26 +1,30 @@
-import os, subprocess
+from shutil import copyfile
+import os, glob, random, json
 
-os.chdir('/projects/temporary/automates/er/gaurav')
-pred = open('pred.txt', 'r').readlines()
-tgt = open('tgt-test.txt', 'r').readlines()
+N=325000
 
-pred_gram = {}
-tgt_gram = {}
+root = 'projects/temporary/automates/er/gaurav'
 
-for t,p in zip(tgt, pred):
-  temp_pred = open('temp_pred', 'w')
-  temp_tgt = open('temp_tgt', 'w')
-  temp_pred.write(p)
-  temp_tgt.write(t)
-  temp_pred.close()
-  temp_tgt.close()
+data_dir = []
 
-  metric = subprocess.check_output('perl multi-bleu.perl %s < %s'%('temp_tgt.txt', 'temp_pred.txt'), shell=True)
+for _ in range(N):
+  y = random.randint(14, 18)
+  year = '20'+str(y)
+  for _ in range(int(N/5)):
+    m = random.randint(1, 12)
+    month = '14'+str(m)
+    month_path = os.path.join(root, f'{year}/{month}')
+    etree_path = os.path.join(month_path, 'etree')
+    folder = random.choice(os.listdir(etree_path))      # directory name
+    for tyf in glob.glob(os.path.join(etree_path, f'{folder}/*')):
+      TYF = os.basename(tyf)  # TYF
+      for file_name in os.listdir(tyf):
+        data_dir.append([year, month, folder, TYF, file_name])
 
-  gram = float(metric.split()[4].split('/')[-1])
-  tgt_gram[len(t.split())] = gram
-  pred_gram[len(p.split())]=gram
+json.dump(data_dir, open(os.path.join(root, 'data_dir'), 'w'))
 
-import json
-json.dump(pred_gram, open('pred_gram.txt', 'w'))
-json.dump(tgt_gram, open('tgt_gram.txt', 'w'))
+for d in data_dir:
+  year, month, folder, TYF, file_name = d
+  image = f'/projects/temporary/automates/er/gaurav/{year}/{month}/{folder}/{TYF}/{file_name.split('.')[0]}.png'
+  new_name = f'{folder}_{TYF}_{file_name.split('.')[0]}.png'
+  copyfile(image, f'/projects/temporary/automates/er/gaurav/data_325K/images/{new_name}')
