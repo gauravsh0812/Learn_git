@@ -1,30 +1,52 @@
-from shutil import copyfile
-import os, glob, random, json
+import os, random
 
-N=325000
+N = 320834
+images = os.listdir('/projects/temporary/automates/er/gaurav/data_325K/images/')
+src_train = open('/projects/temporary/automates/er/gaurav/data_325K/src-train.txt', 'w')
+src_test = open('/projects/temporary/automates/er/gaurav/data_325K/src-test.txt', 'w')
+src_val = open('/projects/temporary/automates/er/gaurav/data_325K/src-val.txt', 'w')
+tgt_train = open('/projects/temporary/automates/er/gaurav/data_325K/tgt-train.txt', 'w')
+tgt_test = open('/projects/temporary/automates/er/gaurav/data_325K/tgt-test.txt', 'w')
+tgt_val = open('/projects/temporary/automates/er/gaurav/data_325K/tgt-val.txt', 'w')
 
-root = 'projects/temporary/automates/er/gaurav'
+train, test, val = [], [], []
+for i in range(int(N*0.8)):
+  image = random.choice(images)
+  train.append(image)
+  src_train.write(image + '\n')
+  #{folder}_{TYF}_{file_name.split(".")[0]}.png
+  folder, tyf, file_name = image.split('_')
+  month, folder_num = folder.split('.')
+  year = '20'+str(month[0:2])
+  eqn_name = file_name.split('.')[0].txt
+  path = '/projects/temporary/automates/er/gaurav/{year}/{month}/Simplified_MML/{folder}/{tyf}/{eqn_name}'
+  eqn = open(path, 'r').readlines()[0]
+  tgt_train.write(eqn + '\n')
 
-data_dir = []
+for i in range(int(N*0.1)):
+  image = random.choice(images)
+  if image not in train:
+    test.append(image)
+    src_test.write(image + '\n')
+    #{folder}_{TYF}_{file_name.split(".")[0]}.png
+    folder, tyf, file_name = image.split('_')
+    month, folder_num = folder.split('.')
+    year = '20'+str(month[0:2])
+    eqn_name = file_name.split('.')[0].txt
+    path = '/projects/temporary/automates/er/gaurav/{year}/{month}/Simplified_MML/{folder}/{tyf}/{eqn_name}'
+    eqn = open(path, 'r').readlines()[0]
+    tgt_test.write(eqn + '\n')
 
-for _ in range(N):
-  y = random.randint(14, 18)
-  year = '20'+str(y)
-  for _ in range(int(N/5)):
-    m = random.randint(1, 12)
-    month = '14'+str(m)
-    month_path = os.path.join(root, f'{year}/{month}')
-    etree_path = os.path.join(month_path, 'etree')
-    folder = random.choice(os.listdir(etree_path))      # directory name
-    for tyf in glob.glob(os.path.join(etree_path, f'{folder}/*')):
-      TYF = os.basename(tyf)  # TYF
-      for file_name in os.listdir(tyf):
-        data_dir.append([year, month, folder, TYF, file_name])
-
-json.dump(data_dir, open(os.path.join(root, 'data_dir'), 'w'))
-
-for d in data_dir:
-  year, month, folder, TYF, file_name = d
-  image = f'/projects/temporary/automates/er/gaurav/{year}/{month}/{folder}/{TYF}/{file_name.split('.')[0]}.png'
-  new_name = f'{folder}_{TYF}_{file_name.split('.')[0]}.png'
-  copyfile(image, f'/projects/temporary/automates/er/gaurav/data_325K/images/{new_name}')
+for i in range(int(N*0.1)):
+  image = random.choice(images)
+  if image not in train and image not in test:
+    val.append(image)
+    src_val.write(image + '\n')
+    #{folder}_{TYF}_{file_name.split(".")[0]}.png
+    folder, tyf, file_name = image.split('_')
+    month, folder_num = folder.split('.')
+    year = '20'+str(month[0:2])
+    eqn_name = file_name.split('.')[0].txt
+    path = '/projects/temporary/automates/er/gaurav/{year}/{month}/Simplified_MML/{folder}/{tyf}/{eqn_name}'
+    eqn = open(path, 'r').readlines()[0]
+    tgt_val.write(eqn + '\n')
