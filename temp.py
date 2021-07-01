@@ -1,45 +1,54 @@
-import os
+import os, random, subprocess
+path = '/projects/temporary/automates/er/gaurav'
+os.chdir(path)
+pred = open('pred.txt', 'r').readlines()
+tgt = open('tgt-test.txt', 'r').readlines()
 
-def json2js(json_data, output_file, var_name='eqn_src'):
+bleu_dict = {}
+gram_dict ={}
+idx_eqn ={}
+idx=[]
+n=0
+b60, b6080, b80 = 0,0,0
 
-    with open(output_file, 'w') as fout:
-        fout.write(f'{var_name} = [\n')
-        for i, datum in enumerate(json_data):
-            fout.write('  {\n')
-            fout.write(f'    eqn_num: {repr(datum["eqn_num"])},\n')
-            fout.write(f'    mml1: {repr(datum["mml1"])},\n')
-            fout.write(f'    mml2: {repr(datum["mml2"])}\n')
-            fout.write('  }')
-            if i < len(json_data):
-                fout.write(',')
-            fout.write('\n')
-        fout.write('];')
+while n < 20:
+  r = random.randint(0, len(pred))
+  if r not in idx:
+    idx.append(r)
+    pred_temp = open('temp_pred.txt', 'w')
+    tgt_temp = open('temp_tgt.txt', 'w')
+    pred_temp.write(pred[r])
+    tgt_temp.write(tgt[r])
+    pred_temp.close()
+    tgt_temp.close()
+
+    metric = subprocess.check_output()
+    Bleu = float(metric.split()[2].replace(',', ''))
+    gram_bleu = float(metric.split()[3].split('/')[-1])
+    if Bleu < 60:
+      bleu_dict['lt60'].append(r)
+      b60+=1
+    elif 60<= Bleu <80:
+      bleu_dict['gte60_lt80'].append(r)
+      b6080+=1
+    else:
+      bleu_dict['gte80'].append(r)
+      b80+=1
 
 
+    if gram_bleu < 60:
+      gram_dict['lt60'].append(r)
+    elif 60<= gram_bleu <80:
+      gram_dict['gte60_lt80'].append(r)
+    else: gram_dict['gte80'].append(r)
 
-if __name__ == '__main__':
+    idx_eqn[r] = []
+    idx_eqn[r].append(pred[r])
+    idx_eqn[r].append(tgt[r])
 
-    dir = "1402.0091"
+    n=min(b60, b6080, b80)
 
-    # json_data --> array of the dictionaries in a format like {'src': ---latex eqn---, 'mml': MathML code}
-    #json_data = []
-
-    Bleu = '/projects/temporary/automates/er/gaurav/Bleu_dict.txt'
-    gram = '/projects/temporary/automates/er/gaurav/gram_dict.txt'
-    idx_eqn = '/projects/temporary/automates/er/gaurav/idx_eqn.txt'
-
-    b=json.load(open(Bleu.'r'))
-    idx = json.load(open(idx_eqn, 'r'))
-    temp = []
-    for i, v in enumerate(b['lt60']):
-      pred, tgt = idx[v]
-      temp_dict = {}
-      temp_dict['eqn_num'] = int(eqn_num)
-      temp_dict['mml1'] = tgt
-      temp_dict['mml2'] = pred
-      temp.append(temp_dict)
-
-    if destination = '/projects/temporary/automates/er/gaurav/lt60.js'
-
-    json2js(temp, destination)
-    
+import json
+json.dump(bleu_dict, open('Bleu_dict.txt', 'w'))
+json.dump(gram_dict, open('gram_dict.txt', 'w'))
+json.dump(idx_eqn, open('idx_eqn.txt', 'w'))
