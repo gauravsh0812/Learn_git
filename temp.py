@@ -5,7 +5,13 @@ pred = open('pred.txt', 'r').readlines()
 tgt = open('tgt-test.txt', 'r').readlines()
 
 bleu_dict = {}
+bleu_dict['lt60']=[]
+bleu_dict['gte60_lt80']=[]
+bleu_dict['gte80']=[]
 gram_dict ={}
+gram_dict['lt60']=[]
+gram_dict['gte60_lt80']=[]
+gram_dict['gte80']=[]
 idx_eqn ={}
 idx=[]
 n=0
@@ -22,9 +28,9 @@ while n < 20:
     pred_temp.close()
     tgt_temp.close()
 
-    metric = subprocess.check_output()
-    Bleu = float(metric.split()[2].replace(',', ''))
-    gram_bleu = float(metric.split()[3].split('/')[-1])
+    metric = subprocess.check_output('perl multi-bleu.perl %s < %s'%('temp_tgt.txt', 'temp_pred.txt'), shell=True)
+    Bleu = float(str(metric).split()[2].replace(',', ''))
+    gram_bleu = float(str(metric).split()[3].split('/')[-1])
     if Bleu < 60:
       bleu_dict['lt60'].append(r)
       b60+=1
