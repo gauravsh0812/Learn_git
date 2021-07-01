@@ -1,52 +1,52 @@
-import os, random
+import os, random, subprocess
+path = '/projects/temporary/automates/er/gaurav'
+os.chdir(path)
+pred = open('pred.txt', 'r').readlines()
+tgt = open('tgt-test.txt', 'r').readlines()
 
-N = 320834
-images = os.listdir('/projects/temporary/automates/er/gaurav/data_325K/images/')
-src_train = open('/projects/temporary/automates/er/gaurav/data_325K/src-train.txt', 'w')
-src_test = open('/projects/temporary/automates/er/gaurav/data_325K/src-test.txt', 'w')
-src_val = open('/projects/temporary/automates/er/gaurav/data_325K/src-val.txt', 'w')
-tgt_train = open('/projects/temporary/automates/er/gaurav/data_325K/tgt-train.txt', 'w')
-tgt_test = open('/projects/temporary/automates/er/gaurav/data_325K/tgt-test.txt', 'w')
-tgt_val = open('/projects/temporary/automates/er/gaurav/data_325K/tgt-val.txt', 'w')
+bleu_dict = {}
+gram_dict ={}
+idx_eqn ={}
+idx=[]
+n=0
+b60, b6080, b80 = 0,0,0
 
-train, test, val = [], [], []
-for i in range(int(N*0.8)):
-  image = random.choice(images)
-  train.append(image)
-  src_train.write(image + '\n')
-  #{folder}_{TYF}_{file_name.split(".")[0]}.png
-  folder, tyf, file_name = image.split('_')
-  month, folder_num = folder.split('.')
-  year = '20'+str(month[0:2])
-  eqn_name = file_name.split('.')[0].txt
-  path = '/projects/temporary/automates/er/gaurav/{year}/{month}/Simplified_MML/{folder}/{tyf}/{eqn_name}'
-  eqn = open(path, 'r').readlines()[0]
-  tgt_train.write(eqn + '\n')
+while n < 20:
+  r = random.randint(0, len(pred))
+  if r not in idx:
+    idx.append(r)
+    pred_temp = open('temp_pred.txt', 'w')
+    tgt_temp = open('temp_tgt.txt', 'w')
+    pred_temp.write(pred[r])
+    tgt_temp.write(tgt[r])
+    pred_temp.close()
+    tgt_temp.close()
 
-for i in range(int(N*0.1)):
-  image = random.choice(images)
-  if image not in train:
-    test.append(image)
-    src_test.write(image + '\n')
-    #{folder}_{TYF}_{file_name.split(".")[0]}.png
-    folder, tyf, file_name = image.split('_')
-    month, folder_num = folder.split('.')
-    year = '20'+str(month[0:2])
-    eqn_name = file_name.split('.')[0].txt
-    path = '/projects/temporary/automates/er/gaurav/{year}/{month}/Simplified_MML/{folder}/{tyf}/{eqn_name}'
-    eqn = open(path, 'r').readlines()[0]
-    tgt_test.write(eqn + '\n')
+    metric = subprocess.check_output()
+    Bleu = float(metric.split()[2].replace(',', ''))
+    gram_bleu = float(metric.split()[3].split('/')[-1])
+    if Bleu < 60:
+      bleu_dict['lt60'].append(r)
+      b60+=1
+    elif 60<= Bleu <80:
+      bleu_dict['gte60_lt80'].append(r)
+      b6080+=1
+    else:
+      bleu_dict['gte80'].append(r)
+      b80+=1
 
-for i in range(int(N*0.1)):
-  image = random.choice(images)
-  if image not in train and image not in test:
-    val.append(image)
-    src_val.write(image + '\n')
-    #{folder}_{TYF}_{file_name.split(".")[0]}.png
-    folder, tyf, file_name = image.split('_')
-    month, folder_num = folder.split('.')
-    year = '20'+str(month[0:2])
-    eqn_name = file_name.split('.')[0].txt
-    path = '/projects/temporary/automates/er/gaurav/{year}/{month}/Simplified_MML/{folder}/{tyf}/{eqn_name}'
-    eqn = open(path, 'r').readlines()[0]
-    tgt_val.write(eqn + '\n')
+
+    if gram_bleu < 60:
+      gram_dict['lt60'].append(r)
+    elif 60<= gram_bleu <80:
+      gram_dict['gte60_lt80'].append(r)
+    else: gram_dict['gte80'].append(r)
+
+    idx_eqn[r] = f'[{pred[r]}, {tgt[r]}]'
+
+    n=min(b60, b6080, b80)
+
+import json
+json.dump(bleu_dict, open('Bleu_dict.txt', 'w'))
+json.dump(gram_dict, open('gram_dict.txt', 'w'))
+json.dump(idx_eqn, open('idx_eqn.txt', 'w'))
