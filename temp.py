@@ -1,54 +1,53 @@
-import os, random, subprocess
-path = '/projects/temporary/automates/er/gaurav'
-os.chdir(path)
-pred = open('pred.txt', 'r').readlines()
-tgt = open('tgt-test.txt', 'r').readlines()
-
-bleu_dict = {}
-gram_dict ={}
-idx_eqn ={}
-idx=[]
-n=0
-b60, b6080, b80 = 0,0,0
-
-while n < 20:
-  r = random.randint(0, len(pred))
-  if r not in idx:
-    idx.append(r)
-    pred_temp = open('temp_pred.txt', 'w')
-    tgt_temp = open('temp_tgt.txt', 'w')
-    pred_temp.write(pred[r])
-    tgt_temp.write(tgt[r])
-    pred_temp.close()
-    tgt_temp.close()
-
-    metric = subprocess.check_output()
-    Bleu = float(metric.split()[2].replace(',', ''))
-    gram_bleu = float(metric.split()[3].split('/')[-1])
-    if Bleu < 60:
-      bleu_dict['lt60'].append(r)
-      b60+=1
-    elif 60<= Bleu <80:
-      bleu_dict['gte60_lt80'].append(r)
-      b6080+=1
-    else:
-      bleu_dict['gte80'].append(r)
-      b80+=1
+import os, multiprocessing, glob
+from multiprocessing import Pool
+from shutils import copyfile
 
 
-    if gram_bleu < 60:
-      gram_dict['lt60'].append(r)
-    elif 60<= gram_bleu <80:
-      gram_dict['gte60_lt80'].append(r)
-    else: gram_dict['gte80'].append(r)
+def main():
 
-    idx_eqn[r] = []
-    idx_eqn[r].append(pred[r])
-    idx_eqn[r].append(tgt[r])
+  temp=[]
+  root = '/projects/temporary/automates/er/gaurav/'
 
-    n=min(b60, b6080, b80)
+  for y in range(14, 19):
+    year = '20'+str(y)
+    year_path = os.path.join(root, year)
+    for m in range(1, 13):
+    mm = f"{m:02d}"
+    month = str(y)+mm
+    month_path = os.path.join(year_path, month)
+    etree = os.path.join(month_path, 'etree')
+    for folder_path in glob.glob(os.path.join(etree, '*')):
+      folder = os.path.basename(folder_path)
+      for tyf in glob.glob(os.path.join(folder_path, '*')):
+        tyf_basename = os.path.basename(tyf)
+        TYF = 'Large_eqns' if tyf_basename == 'Large_MML' else 'Small_eqns'
+        for file_name_path in glob.glob(os.path.join(tyf, '*')):
+          file_name = os.path.basename(file_name_path)
+          file_name = file_name.split('.')[0]
 
-import json
-json.dump(bleu_dict, open('Bleu_dict.txt', 'w'))
-json.dump(gram_dict, open('gram_dict.txt', 'w'))
-json.dump(idx_eqn, open('idx_eqn.txt', 'w'))
+          temp.append([root, year, month, folder, TYF, file_name])
+
+  with Pool(multiprocessing.cpu_count()-10) as pool:
+    result = pool.map(main_parallel, temp)
+
+def main_parallel(args_arr):
+
+  root, year, month, folder, TYF, file_name = args_arr
+  try:
+    file_name_png = file_name+'.png'
+    image_path = os.path.join(root, f'{year}/{month}/latex_images/{folder}/{TYF}/{file_name_png}')
+    final_name = f'{month}_{folder.split('.')[1]}_{TYF.spllit('_')[0]}_{file_name}.png'
+    dst = os.path.join(root, f'data_17M/images/{final_name}')
+    copyfile(image_path, dst)
+  except:
+    try:
+      file_name_png = file_name+'png0001-1.png'
+      image_path = os.path.join(root, f'{year}/{month}/latex_images/{folder}/{TYF}/{file_name_png}')
+      final_name = f'{month}_{folder.split('.')[1]}_{TYF.spllit('_')[0]}_{file_name}.png'
+      dst = os.path.join(root, f'data_17M/images/{final_name}')
+      copyfile(image_path, dst)
+    except:
+      pass
+
+main()
+print('Jobs Done!')
