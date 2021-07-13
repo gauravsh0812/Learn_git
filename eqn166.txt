@@ -1,0 +1,1 @@
+T(Z)+\sum_{r=2m-2i-1}^m\sum_{\tau \in \{1,-1\}} a_{r,\tau}^1U_{r,\tau}(Z)
