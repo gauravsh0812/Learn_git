@@ -1,0 +1,1 @@
+p_{lk} = \tau_{lk} =\frac{\rho}{d_l\left({\bf z}_{lk}\right)}
