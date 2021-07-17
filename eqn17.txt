@@ -1,1 +1,0 @@
-\varepsilon_{\tau\lambda\sigma}\equiv\varepsilon_{\nu\tau\lambda\sigma}n^{\nu}
