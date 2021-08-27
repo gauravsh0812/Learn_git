@@ -1,53 +1,43 @@
-import os, PIL, multiprocessing
-from PIL import Image
-from multiprocessing import Lock, Pool
+import os, glob, multiprocessing
+from shutils import copyfile
+from multiprocessing import Pool, Lock
 
 lock=Lock()
 
-def main(src):
-
-  global lock
-
-  temp = []
-  for idx, s in enumerate(src[:100]):
-    month, f, t, name = s.split('_')
-    year = '20'+str(month[0:2])
-    folder = str(month)+'.'+str(f)
-    tyf = str(t)+'_eqns'
-    eqn_name = name.split('.')[0]+'.txt'
-    s_temp=s.replace('\n','')
-    img_path = f'/projects/temporary/automates/er/gaurav/data_17M/xfer/images/{s_temp}'
-
-    temp.append([img_path, year, month, folder, tyf, eqn_name])
-
-  print('temp done!')
-
-  pool = Pool(multiprocessing.cpu_count()-10)
-  with open('/projects/temporary/automates/er/gaurav/data_17M/xfer/tgt-train-MP.txt', 'w') as tgt:
-    with open('/projects/temporary/automates/er/gaurav/data_17M/xfer/src-train-new-MP.txt', 'w') as src_new:
-      for result in pool.imap(parallel, temp):
-        if Flag:
-          lock.acquire()
-          tgt.write(eqn)
-          src.write(img_path)
-          lock.release()
-
-
-def parallel(args):
-
-  img_path, year, month, folder, tyf, eqn_name = args
-  Flag=False
+def xfer(args):
+  folder, TYF, filename  = args
   try:
-    IMG = Image.open(img_path)
-    final_path = f'/projects/temporary/automates/er/gaurav/{year}/{month}/latex_equations/{folder}/{tyf}/{eqn_name}'
-    eqn = open(final_path, 'r').readlines()[0]
-    Flag = True
-    return eqn, img_path, Flag
+    img_path_1 = f'/projects/temporary/automates/er/gaurav/2018/1808/latex_images/{folder}/{TYF}/{filename}.png'
+    dst = '/projects/temporary/automates/er/gaurav/data_17M/xfer/images'
+    copyfile(img_path_1, dst)
 
   except:
-    return Flag
-    pass
+    try:
+      img_path_2 = f'/projects/temporary/automates/er/gaurav/2018/1808/latex_images/{folder}/{TYF}/{filename}.png0001-1.png'
+      dst = '/projects/temporary/automates/er/gaurav/data_17M/xfer/images'
+      copyfile(img_path_2, dst)
 
-if __name__ == '__main__':
-    src = open('/projects/temporary/automates/er/gaurav/data_17M/xfer/src-train.txt', 'r').readlines()
-    main(src)
+    except:
+      pass
+
+
+path_1808 = '/projects/temporary/automates/er/gaurav/2018/1808/etree/*'
+
+c=0
+temp = []
+for folder_path in glob.glob(path_1808):
+  if c<200000:
+    folder = os.path.basename(folder_path)
+    for tyf in glob.glob(os.path.join(folder_path, '*')):
+      TYF = os.path.basename(tyf).split('_')[0]+'_eqns'
+      for filepath in glob.glob(os.path.join(tyf, '*')):
+        filename = os.path.basename(filepath).split('.')[0]
+        c+=1
+        temp.append([folder, TYF, filename])
+  else: break
+
+print('temp done!')
+print(temp[-1])
+
+with Pool(multiprocessing.cpu_count()-5) as pool:
+  pool.map(xfer, temp)
