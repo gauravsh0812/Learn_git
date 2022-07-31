@@ -1,0 +1,11 @@
+,formula,image
+0,"\alpha _ { 1 } ^ { r } \gamma _ { 1 } + \dots + \alpha _ { N } ^ { r } \gamma _ { N } = 0 \quad ( r = 1 , . . . , R ) \; ,",7944775fc9.png
+1,\eta = - \frac { 1 } { 2 } \operatorname { l n } \left( \frac { \operatorname { c o s h } \left( \sqrt { 2 } b _ { \infty } \sqrt { 1 + \alpha ^ { 2 } } \; y - \mathrm { a r c s i n h } \; \alpha \right) } { \sqrt { 1 + \alpha ^ { 2 } } } \right),78228211ca.png
+2,"P _ { ( 2 ) } ^ { - } = \int \beta d \beta d ^ { 9 } p d ^ { 8 } \lambda \Phi ( - p , - \lambda ) \left( - \frac { p ^ { I } p ^ { I } } { 2 \beta } \right) \Phi ( p , \lambda ) \, .",15b9034ba8.png
+3,"\Gamma ( z + 1 ) = \int _ { 0 } ^ { \infty } \, \, d x \, \, e ^ { - x } x ^ { z } .",6968dfca15.png
+4,"\frac { d } { d s } { \bf C } _ { i } = \frac { 1 } { 2 } \epsilon _ { i j k } { \bf C } _ { j } \times { \bf C } _ { k } \, .",6cead0df53.png
+5,"Z = \sum _ { s p i n s } \prod _ { c u b e s } W ( a | e , f , g | b , c , d | h ) ,",5381b22df4.png
+6,"\left\{ Q ^ { i } , Q ^ { j } \right\} = c ^ { i j } \Gamma ^ { M } C P _ { M } + C c ^ { i j } Z ,",27f2b37ce9.png
+7,"\breve { c } _ { n , \nu } = \sum _ { m = n } ^ { 2 n } { \frac { \Gamma \left( \nu + m - { \frac { D - 1 } { 2 } } \right) } { \Gamma \left( \nu + n - { \frac { D - 1 } { 2 } } \right) } } ~ \breve { a } _ { 2 ( m - n ) , m } ~ ~ ~ .",51a257cdf5.png
+8,"R ( g ) = - f \left[ 3 \left[ ( \operatorname { l n } f ) ^ { \prime } \right] ^ { 2 } + \frac { \Lambda ( x ^ { 5 } ) } { M ^ { 3 } } \right] \; ,",5108925e21.png
+9,"{ \frac { d } { d s } } { \frac { 1 } { \Gamma ( - s ) } } \bigg | _ { s = 0 } = - 1 ,",3882dd3d43.png
