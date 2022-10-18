@@ -1,0 +1,1 @@
+<math>  <munder>    <mo form="prefix">sup</mo>    <mrow>      <mn>0</mn>      <mo>&#x2264;<!-- â¤ --></mo>      <mi>t</mi>      <mo>&#x2264;<!-- â¤ --></mo>      <msub>        <mi>T</mi>        <mn>0</mn>      </msub>    </mrow>  </munder>  <mi>&#x03C8;<!-- Ï --></mi>  <mo>(</mo>  <mi>t</mi>  <mo>)</mo>  <mo>&#x2264;<!-- â¤ --></mo>  <mi>M</mi></math>
