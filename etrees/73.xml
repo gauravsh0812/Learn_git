@@ -1,1 +1,33 @@
-<math>  <mrow>    <mover>      <mi>x</mi>      <mo>&#x00AF;<!-- Â¯ --></mo>    </mover>  </mrow>  <mo>&#x225C;<!-- â --></mo>  <msup>    <mrow>      <mo>(</mo>      <mi>e</mi>      <mo>+</mo>      <mrow>        <mo>|</mo>      </mrow>      <mi>x</mi>      <msup>        <mrow>          <mo>|</mo>        </mrow>        <mn>2</mn>      </msup>      <mo>)</mo>    </mrow>    <mrow>      <mfrac>        <mn>1</mn>        <mn>2</mn>      </mfrac>    </mrow>  </msup>  <msup>    <mi>log</mi>    <mrow>      <mn>1</mn>      <mo>+</mo>      <msub>        <mi>&#x03B7;<!-- Î· --></mi>        <mn>0</mn>      </msub>    </mrow>  </msup>  <mo>&#x2061;<!-- â¡ --></mo>  <mrow>    <mo>(</mo>    <mi>e</mi>    <mo>+</mo>    <mrow>      <mo>|</mo>    </mrow>    <mi>x</mi>    <msup>      <mrow>        <mo>|</mo>      </mrow>      <mn>2</mn>    </msup>    <mo>)</mo>  </mrow></math>
+<?xml version="1.0" ?>
+<math>
+	<mi>ρ</mi>
+	<msup>
+		<mrow>
+			<mover>
+				<mi>x</mi>
+				<mo>¯</mo>
+			</mover>
+		</mrow>
+		<mi>a</mi>
+	</msup>
+	<mo>∈</mo>
+	<msup>
+		<mi>L</mi>
+		<mi>∞</mi>
+	</msup>
+	<mo>(</mo>
+	<mn>0</mn>
+	<mo>,</mo>
+	<msub>
+		<mi>T</mi>
+		<mn>0</mn>
+	</msub>
+	<mo>;</mo>
+	<msup>
+		<mi>L</mi>
+		<mn>1</mn>
+	</msup>
+	<mo>)</mo>
+	<mo>,</mo>
+	<mspace width="1em"/>
+</math>

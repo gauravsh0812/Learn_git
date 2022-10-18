@@ -1,1 +1,36 @@
-<math>  <mfrac>    <mi>d</mi>    <mrow>      <mi>d</mi>      <mi>t</mi>    </mrow>  </mfrac>  <mo>&#x222B;<!-- â« --></mo>  <mrow>    <mo>(</mo>    <mfrac>      <mn>1</mn>      <mn>2</mn>    </mfrac>    <mi>&#x03C1;<!-- Ï --></mi>    <mrow>      <mo>|</mo>    </mrow>    <mrow>      <mi mathvariant="bold">u</mi>    </mrow>    <msup>      <mrow>        <mo>|</mo>      </mrow>      <mn>2</mn>    </msup>    <mo>+</mo>    <mfrac>      <mn>1</mn>      <mn>2</mn>    </mfrac>    <mrow>      <mo>|</mo>    </mrow>    <mrow>      <mi mathvariant="bold">b</mi>    </mrow>    <msup>      <mrow>        <mo>|</mo>      </mrow>      <mn>2</mn>    </msup>    <mo>+</mo>    <mi>P</mi>    <mo>)</mo>  </mrow>  <mi>d</mi>  <mi>x</mi>  <mo>=</mo>  <mn>0</mn></math>
+<?xml version="1.0" ?>
+<math>
+	<mo>−</mo>
+	<mi>μ</mi>
+	<mi>Δ</mi>
+	<mrow>
+		<mo>(</mo>
+		<msubsup>
+			<mrow>
+				<mover>
+					<mrow>
+						<mi mathvariant="bold">u</mi>
+					</mrow>
+					<mo>~</mo>
+				</mover>
+			</mrow>
+			<mn>0</mn>
+			<mrow>
+				<msub>
+					<mi>R</mi>
+					<mi>j</mi>
+				</msub>
+			</mrow>
+		</msubsup>
+		<mo>−</mo>
+		<msub>
+			<mrow>
+				<mi mathvariant="bold">u</mi>
+			</mrow>
+			<mrow>
+				<mn>0</mn>
+			</mrow>
+		</msub>
+		<mo>)</mo>
+	</mrow>
+</math>

@@ -1,1 +1,33 @@
-<math>  <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>  <msup>    <mi>&#x2207;<!-- â --></mi>    <mn>2</mn>  </msup>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <msubsup>    <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>    <mrow>      <msup>        <mi>L</mi>        <mi>r</mi>      </msup>    </mrow>    <mn>2</mn>  </msubsup></math>
+<?xml version="1.0" ?>
+<math>
+	<munder>
+		<mo form="prefix">sup</mo>
+		<mrow>
+			<mn>0</mn>
+			<mo>≤</mo>
+			<mi>s</mi>
+			<mo>≤</mo>
+			<mi>t</mi>
+		</mrow>
+	</munder>
+	<mo fence="false">‖</mo>
+	<mi>ρ</mi>
+	<msup>
+		<mrow>
+			<mover>
+				<mi>x</mi>
+				<mo>¯</mo>
+			</mover>
+		</mrow>
+		<mi>a</mi>
+	</msup>
+	<msub>
+		<mo fence="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mn>1</mn>
+			</msup>
+		</mrow>
+	</msub>
+</math>

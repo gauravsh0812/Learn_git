@@ -1,1 +1,78 @@
-<math>  <mo>&#x222B;<!-- â« --></mo>  <mo>&#x22C5;<!-- â --></mo>  <mi>d</mi>  <mi>x</mi>  <mo>=</mo>  <msub>    <mo>&#x222B;<!-- â« --></mo>    <mrow>      <msub>        <mi>B</mi>        <mi>R</mi>      </msub>    </mrow>  </msub>  <mo>&#x22C5;<!-- â --></mo>  <mi>d</mi>  <mi>x</mi>  <mo>,</mo>  <mspace width="1em" />  <msup>    <mi>L</mi>    <mi>r</mi>  </msup>  <mo>=</mo>  <msup>    <mi>L</mi>    <mi>r</mi>  </msup>  <mo>(</mo>  <msub>    <mi>B</mi>    <mi>R</mi>  </msub>  <mo>)</mo>  <mo>,</mo>  <mspace width="1em" />  <msup>    <mi>W</mi>    <mrow>      <mi>k</mi>      <mo>,</mo>      <mi>r</mi>    </mrow>  </msup>  <mo>=</mo>  <msup>    <mi>W</mi>    <mrow>      <mi>k</mi>      <mo>,</mo>      <mi>r</mi>    </mrow>  </msup>  <mo>(</mo>  <msub>    <mi>B</mi>    <mi>R</mi>  </msub>  <mo>)</mo>  <mo>,</mo>  <mspace width="1em" />  <msup>    <mi>H</mi>    <mi>k</mi>  </msup>  <mo>=</mo>  <msup>    <mi>W</mi>    <mrow>      <mi>k</mi>      <mo>,</mo>      <mn>2</mn>    </mrow>  </msup></math>
+<?xml version="1.0" ?>
+<math>
+	<msubsup>
+		<mi>P</mi>
+		<mrow>
+			<mn>0</mn>
+		</mrow>
+		<mrow>
+			<mi>R</mi>
+		</mrow>
+	</msubsup>
+	<mo>→</mo>
+	<msub>
+		<mi>P</mi>
+		<mrow>
+			<mn>0</mn>
+		</mrow>
+	</msub>
+	<mspace width="1em"/>
+	<mspace width="thinmathspace"/>
+	<mspace width="thinmathspace"/>
+	<msup>
+		<mi>L</mi>
+		<mn>1</mn>
+	</msup>
+	<mo>(</mo>
+	<msup>
+		<mrow>
+			<mi mathvariant="double-struck">R</mi>
+		</mrow>
+		<mn>2</mn>
+	</msup>
+	<mo>)</mo>
+	<mo>∩</mo>
+	<msup>
+		<mi>H</mi>
+		<mrow>
+			<mn>1</mn>
+		</mrow>
+	</msup>
+	<mo>(</mo>
+	<msup>
+		<mrow>
+			<mi mathvariant="double-struck">R</mi>
+		</mrow>
+		<mn>2</mn>
+	</msup>
+	<mo>)</mo>
+	<mo>∩</mo>
+	<msup>
+		<mi>W</mi>
+		<mrow>
+			<mn>1</mn>
+			<mo>,</mo>
+			<mi>q</mi>
+		</mrow>
+	</msup>
+	<mo>(</mo>
+	<msup>
+		<mrow>
+			<mi mathvariant="double-struck">R</mi>
+		</mrow>
+		<mn>2</mn>
+	</msup>
+	<mo>)</mo>
+	<mo>,</mo>
+	<mspace width="thinmathspace"/>
+	<mspace width="thinmathspace"/>
+	<mrow>
+		<mi>a</mi>
+		<mi>s</mi>
+	</mrow>
+	<mspace width="thinmathspace"/>
+	<mspace width="thinmathspace"/>
+	<mi>R</mi>
+	<mo>→</mo>
+	<mi>∞</mi>
+</math>

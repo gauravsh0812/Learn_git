@@ -1,1 +1,32 @@
-<math>  <mi>B</mi>  <mo>(</mo>  <mi>t</mi>  <mo>)</mo>  <mo>&#x225C;<!-- â --></mo>  <mo>&#x222B;<!-- â« --></mo>  <mi>P</mi>  <mi>div</mi>  <mo>&#x2061;<!-- â¡ --></mo>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <mi>d</mi>  <mi>x</mi>  <mo>+</mo>  <mfrac>    <mn>1</mn>    <mn>2</mn>  </mfrac>  <mo>&#x222B;<!-- â« --></mo>  <mi>div</mi>  <mo>&#x2061;<!-- â¡ --></mo>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <mrow>    <mo>|</mo>  </mrow>  <mrow>    <mi mathvariant="bold">b</mi>  </mrow>  <msup>    <mrow>      <mo>|</mo>    </mrow>    <mn>2</mn>  </msup>  <mi>d</mi>  <mi>x</mi></math>
+<?xml version="1.0" ?>
+<math>
+	<msub>
+		<mi>J</mi>
+		<mn>5</mn>
+	</msub>
+	<mo>≤</mo>
+	<mfrac>
+		<mi>μ</mi>
+		<mn>8</mn>
+	</mfrac>
+	<mo fence="false" stretchy="false">‖</mo>
+	<mi>∇</mi>
+	<mrow>
+		<mover>
+			<mrow>
+				<mi mathvariant="bold">u</mi>
+			</mrow>
+			<mo>˙</mo>
+		</mover>
+	</mrow>
+	<msubsup>
+		<mo fence="false" stretchy="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mn>2</mn>
+			</msup>
+		</mrow>
+		<mn>2</mn>
+	</msubsup>
+</math>

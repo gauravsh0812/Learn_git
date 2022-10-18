@@ -1,1 +1,32 @@
-<math>  <munder>    <mo form="prefix">inf</mo>    <mrow>      <mn>0</mn>      <mo>&#x2264;<!-- â¤ --></mo>      <mi>t</mi>      <mo>&#x2264;<!-- â¤ --></mo>      <msub>        <mi>T</mi>        <mn>1</mn>      </msub>    </mrow>  </munder>  <msub>    <mo>&#x222B;<!-- â« --></mo>    <mrow>      <msub>        <mi>B</mi>        <mrow>          <mn>2</mn>          <msub>            <mi>N</mi>            <mn>0</mn>          </msub>        </mrow>      </msub>    </mrow>  </msub>  <mi>&#x03C1;<!-- Ï --></mi>  <mi>d</mi>  <mi>x</mi></math>
+<?xml version="1.0" ?>
+<math>
+	<mfrac>
+		<mi>d</mi>
+		<mrow>
+			<mi>d</mi>
+			<mi>t</mi>
+		</mrow>
+	</mfrac>
+	<mo fence="false">‖</mo>
+	<mrow>
+		<mi mathvariant="bold">b</mi>
+	</mrow>
+	<msup>
+		<mrow>
+			<mover>
+				<mi>x</mi>
+				<mo>¯</mo>
+			</mover>
+		</mrow>
+		<mi>a</mi>
+	</msup>
+	<msub>
+		<mo fence="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mi>r</mi>
+			</msup>
+		</mrow>
+	</msub>
+</math>

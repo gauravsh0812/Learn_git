@@ -1,1 +1,27 @@
-<math>  <msubsup>    <mrow>      <mi mathvariant="bold">b</mi>    </mrow>    <mn>0</mn>    <mi>R</mi>  </msubsup>  <msup>    <mrow>      <mover>        <mi>x</mi>        <mo>&#x00AF;<!-- Â¯ --></mo>      </mover>    </mrow>    <mi>a</mi>  </msup>  <mo>&#x2192;<!-- â --></mo>  <msub>    <mrow>      <mi mathvariant="bold">b</mi>    </mrow>    <mn>0</mn>  </msub>  <msup>    <mrow>      <mover>        <mi>x</mi>        <mo>&#x00AF;<!-- Â¯ --></mo>      </mover>    </mrow>    <mi>a</mi>  </msup>  <mspace width="1em" /></math>
+<?xml version="1.0" ?>
+<math>
+	<mfrac>
+		<mi>d</mi>
+		<mrow>
+			<mi>d</mi>
+			<mi>t</mi>
+		</mrow>
+	</mfrac>
+	<mo fence="false" stretchy="false">‖</mo>
+	<mi>∇</mi>
+	<mi>P</mi>
+	<msub>
+		<mo fence="false" stretchy="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mn>2</mn>
+			</msup>
+			<mo>∩</mo>
+			<msup>
+				<mi>L</mi>
+				<mi>q</mi>
+			</msup>
+		</mrow>
+	</msub>
+</math>

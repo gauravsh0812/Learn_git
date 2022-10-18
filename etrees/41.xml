@@ -1,1 +1,18 @@
-<math>  <munder>    <mo form="prefix">sup</mo>    <mrow>      <mn>0</mn>      <mo>&#x2264;<!-- â¤ --></mo>      <mi>s</mi>      <mo>&#x2264;<!-- â¤ --></mo>      <mi>t</mi>    </mrow>  </munder>  <mo fence="false">&#x2016;<!-- â --></mo>  <mi>&#x03C1;<!-- Ï --></mi>  <msup>    <mrow>      <mover>        <mi>x</mi>        <mo>&#x00AF;<!-- Â¯ --></mo>      </mover>    </mrow>    <mi>a</mi>  </msup>  <msub>    <mo fence="false">&#x2016;<!-- â --></mo>    <mrow>      <msup>        <mi>L</mi>        <mn>1</mn>      </msup>    </mrow>  </msub></math>
+<?xml version="1.0" ?>
+<math>
+	<mi>ρ</mi>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>∈</mo>
+	<msubsup>
+		<mi>L</mi>
+		<mi>t</mi>
+		<mi>∞</mi>
+	</msubsup>
+	<msubsup>
+		<mi>H</mi>
+		<mi>x</mi>
+		<mn>1</mn>
+	</msubsup>
+</math>

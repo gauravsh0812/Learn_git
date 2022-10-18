@@ -1,1 +1,17 @@
-<math>  <mo fence="false">&#x2016;<!-- â --></mo>  <mi>v</mi>  <msup>    <mrow>      <mover>        <mi>x</mi>        <mo>&#x00AF;<!-- Â¯ --></mo>      </mover>    </mrow>    <mrow>      <mo>&#x2212;<!-- â --></mo>      <mi>&#x03B7;<!-- Î· --></mi>    </mrow>  </msup>  <msub>    <mo fence="false">&#x2016;<!-- â --></mo>    <mrow>      <msup>        <mi>L</mi>        <mrow>          <mo>(</mo>          <mn>2</mn>          <mo>+</mo>          <mi>&#x03B5;<!-- Îµ --></mi>          <mo>)</mo>          <mrow>            <mo>/</mo>          </mrow>          <mrow>            <mover>              <mi>&#x03B7;<!-- Î· --></mi>              <mo>&#x007E;<!-- ~ --></mo>            </mover>          </mrow>        </mrow>      </msup>      <mo>(</mo>      <mi>&#x03A9;<!-- Î© --></mi>      <mo>)</mo>    </mrow>  </msub></math>
+<?xml version="1.0" ?>
+<math>
+	<mi>v</mi>
+	<mo>=</mo>
+	<mn>0</mn>
+	<mtext> </mtext>
+	<mtext> </mtext>
+	<mstyle displaystyle="false" scriptlevel="0">
+		<mtext>on</mtext>
+	</mstyle>
+	<mtext> </mtext>
+	<mtext> </mtext>
+	<msub>
+		<mi>B</mi>
+		<mi>R</mi>
+	</msub>
+</math>

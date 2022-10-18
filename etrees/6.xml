@@ -1,1 +1,35 @@
-<math>  <mo>(</mo>  <mi>&#x2207;<!-- â --></mi>  <mi>P</mi>  <msub>    <mo>)</mo>    <mrow>      <mi>t</mi>    </mrow>  </msub>  <mo>+</mo>  <mi>&#x2207;<!-- â --></mi>  <mo>(</mo>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <mo>&#x22C5;<!-- â --></mo>  <mi>&#x2207;<!-- â --></mi>  <mi>P</mi>  <mo>)</mo></math>
+<?xml version="1.0" ?>
+<math>
+	<mrow>
+		<mi mathvariant="fraktur">D</mi>
+	</mrow>
+	<mo>(</mo>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>)</mo>
+	<mo>=</mo>
+	<mfrac>
+		<mn>1</mn>
+		<mn>2</mn>
+	</mfrac>
+	<mo>(</mo>
+	<mi>∇</mi>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>+</mo>
+	<mo>(</mo>
+	<mi>∇</mi>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<msup>
+		<mo>)</mo>
+		<mrow>
+			<mi>t</mi>
+			<mi>r</mi>
+		</mrow>
+	</msup>
+	<mo>)</mo>
+</math>

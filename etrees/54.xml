@@ -1,1 +1,13 @@
-<math>  <mn>2</mn>  <mo>&#x222B;<!-- â« --></mo>  <mi>div</mi>  <mo>&#x2061;<!-- â¡ --></mo>  <mo>(</mo>  <mi>P</mi>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <mo>)</mo>  <mi>P</mi>  <mi>d</mi>  <mi>x</mi></math>
+<?xml version="1.0" ?>
+<math>
+	<munder>
+		<mo form="prefix">sup</mo>
+		<mrow>
+			<mn>0</mn>
+			<mo>≤</mo>
+			<mi>s</mi>
+			<mo>≤</mo>
+			<mi>t</mi>
+		</mrow>
+	</munder>
+</math>

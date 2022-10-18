@@ -1,1 +1,31 @@
-<math>  <mi>&#x03C8;<!-- Ï --></mi>  <mo>(</mo>  <mi>t</mi>  <mo>)</mo>  <mo>&#x2264;<!-- â¤ --></mo>  <mi>exp</mi>  <mo>&#x2061;<!-- â¡ --></mo>  <mrow>    <mo>{</mo>    <mi>C</mi>    <mi>exp</mi>    <mo>&#x2061;<!-- â¡ --></mo>    <mrow>      <mo>{</mo>      <mi>C</mi>      <msubsup>        <mo>&#x222B;<!-- â« --></mo>        <mrow>          <mn>0</mn>        </mrow>        <mrow>          <mi>t</mi>        </mrow>      </msubsup>      <msup>        <mi>&#x03C8;<!-- Ï --></mi>        <mrow>          <mi>&#x03B1;<!-- Î± --></mi>        </mrow>      </msup>      <mi>d</mi>      <mi>s</mi>      <mo>}</mo>    </mrow>    <mo>}</mo>  </mrow></math>
+<?xml version="1.0" ?>
+<math>
+	<mo fence="false">‖</mo>
+	<mi>v</mi>
+	<msup>
+		<mrow>
+			<mover>
+				<mi>x</mi>
+				<mo>¯</mo>
+			</mover>
+		</mrow>
+		<mrow>
+			<mo>−</mo>
+			<mn>1</mn>
+		</mrow>
+	</msup>
+	<msub>
+		<mo fence="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mrow>
+					<mn>2</mn>
+				</mrow>
+			</msup>
+			<mo>(</mo>
+			<mi>Ω</mi>
+			<mo>)</mo>
+		</mrow>
+	</msub>
+</math>

@@ -1,1 +1,34 @@
-<math>  <msub>    <mi>E</mi>    <mn>0</mn>  </msub>  <mo>&#x225C;<!-- â --></mo>  <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>  <msqrt>    <msub>      <mi>&#x03C1;<!-- Ï --></mi>      <mn>0</mn>    </msub>  </msqrt>  <msub>    <mrow>      <mi mathvariant="bold">u</mi>    </mrow>    <mn>0</mn>  </msub>  <msub>    <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>    <mrow>      <msup>        <mi>L</mi>        <mn>2</mn>      </msup>    </mrow>  </msub>  <mo>+</mo>  <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>  <mi>&#x2207;<!-- â --></mi>  <msub>    <mrow>      <mi mathvariant="bold">u</mi>    </mrow>    <mn>0</mn>  </msub>  <msub>    <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>    <mrow>      <msup>        <mi>L</mi>        <mn>2</mn>      </msup>    </mrow>  </msub></math>
+<?xml version="1.0" ?>
+<math>
+	<mi>∇</mi>
+	<mo>(</mo>
+	<mi>ρ</mi>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>)</mo>
+	<mo>=</mo>
+	<mi>ρ</mi>
+	<mi>∇</mi>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>+</mo>
+	<mi>∇</mi>
+	<mi>ρ</mi>
+	<mo>⋅</mo>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>∈</mo>
+	<msubsup>
+		<mi>L</mi>
+		<mi>t</mi>
+		<mi>∞</mi>
+	</msubsup>
+	<msubsup>
+		<mi>L</mi>
+		<mi>x</mi>
+		<mn>2</mn>
+	</msubsup>
+</math>

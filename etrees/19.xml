@@ -1,1 +1,16 @@
-<math>  <mo>&#x222B;<!-- â« --></mo>  <mi>&#x03C1;<!-- Ï --></mi>  <mrow>    <mo>|</mo>  </mrow>  <mrow>    <mover>      <mrow>        <mi mathvariant="bold">u</mi>      </mrow>      <mo>&#x02D9;<!-- Ë --></mo>    </mover>  </mrow>  <msup>    <mrow>      <mo>|</mo>    </mrow>    <mn>2</mn>  </msup>  <mi>d</mi>  <mi>x</mi></math>
+<?xml version="1.0" ?>
+<math>
+	<mn>2</mn>
+	<mo>∫</mo>
+	<mi>div</mi>
+	<mo>⁡</mo>
+	<mo>(</mo>
+	<mi>P</mi>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>)</mo>
+	<mi>P</mi>
+	<mi>d</mi>
+	<mi>x</mi>
+</math>

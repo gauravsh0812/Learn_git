@@ -1,1 +1,25 @@
-<math>  <mi>&#x03C1;<!-- Ï --></mi>  <msup>    <mrow>      <mover>        <mi>x</mi>        <mo>&#x00AF;<!-- Â¯ --></mo>      </mover>    </mrow>    <mi>a</mi>  </msup>  <mo>&#x2208;<!-- â --></mo>  <msup>    <mi>L</mi>    <mi>&#x221E;<!-- â --></mi>  </msup>  <mo>(</mo>  <mn>0</mn>  <mo>,</mo>  <msub>    <mi>T</mi>    <mn>0</mn>  </msub>  <mo>;</mo>  <msup>    <mi>L</mi>    <mn>1</mn>  </msup>  <mo>)</mo>  <mo>,</mo>  <mspace width="1em" /></math>
+<?xml version="1.0" ?>
+<math>
+	<mfrac>
+		<mi>d</mi>
+		<mrow>
+			<mi>d</mi>
+			<mi>t</mi>
+		</mrow>
+	</mfrac>
+	<mo fence="false" stretchy="false">‖</mo>
+	<mi>∇</mi>
+	<mrow>
+		<mi mathvariant="bold">b</mi>
+	</mrow>
+	<msub>
+		<mo fence="false" stretchy="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mi>r</mi>
+			</msup>
+		</mrow>
+	</msub>
+	<mo>≤</mo>
+</math>

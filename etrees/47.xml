@@ -1,1 +1,37 @@
-<math>  <msub>    <mrow>      <mover>        <mrow>          <mi mathvariant="bold">u</mi>        </mrow>        <mo>&#x007E;<!-- ~ --></mo>      </mover>    </mrow>    <mn>0</mn>  </msub>  <mo>=</mo>  <msub>    <mrow>      <mi mathvariant="bold">u</mi>    </mrow>    <mn>0</mn>  </msub></math>
+<?xml version="1.0" ?>
+<math>
+	<mfrac>
+		<mn>1</mn>
+		<mn>2</mn>
+	</mfrac>
+	<mfrac>
+		<mi>d</mi>
+		<mrow>
+			<mi>d</mi>
+			<mi>t</mi>
+		</mrow>
+	</mfrac>
+	<mo>∫</mo>
+	<mi>ρ</mi>
+	<mrow>
+		<mo>|</mo>
+	</mrow>
+	<mrow>
+		<mover>
+			<mrow>
+				<mi mathvariant="bold">u</mi>
+			</mrow>
+			<mo>˙</mo>
+		</mover>
+	</mrow>
+	<msup>
+		<mrow>
+			<mo>|</mo>
+		</mrow>
+		<mn>2</mn>
+	</msup>
+	<mstyle displaystyle="false" scriptlevel="0">
+		<mtext>d</mtext>
+	</mstyle>
+	<mi>x</mi>
+</math>

@@ -1,1 +1,21 @@
-<math>  <mfrac>    <mi>d</mi>    <mrow>      <mi>d</mi>      <mi>t</mi>    </mrow>  </mfrac>  <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>  <mi>P</mi>  <msubsup>    <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>    <mrow>      <msup>        <mi>L</mi>        <mn>2</mn>      </msup>    </mrow>    <mn>2</mn>  </msubsup></math>
+<?xml version="1.0" ?>
+<math>
+	<msub>
+		<mrow>
+			<mover>
+				<mrow>
+					<mi mathvariant="bold">u</mi>
+				</mrow>
+				<mo>~</mo>
+			</mover>
+		</mrow>
+		<mn>0</mn>
+	</msub>
+	<mo>=</mo>
+	<msub>
+		<mrow>
+			<mi mathvariant="bold">u</mi>
+		</mrow>
+		<mn>0</mn>
+	</msub>
+</math>

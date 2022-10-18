@@ -1,1 +1,38 @@
-<math>  <msub>    <mi>&#x2202;<!-- â --></mi>    <mrow>      <mi>t</mi>    </mrow>  </msub>  <mo>(</mo>  <mi>&#x03C1;<!-- Ï --></mi>  <msup>    <mrow>      <mover>        <mi>x</mi>        <mo>&#x00AF;<!-- Â¯ --></mo>      </mover>    </mrow>    <mi>a</mi>  </msup>  <mo>)</mo>  <mo>+</mo>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <mo>&#x22C5;<!-- â --></mo>  <mi>&#x2207;<!-- â --></mi>  <mo>(</mo>  <mi>&#x03C1;<!-- Ï --></mi>  <msup>    <mrow>      <mover>        <mi>x</mi>        <mo>&#x00AF;<!-- Â¯ --></mo>      </mover>    </mrow>    <mi>a</mi>  </msup>  <mo>)</mo></math>
+<?xml version="1.0" ?>
+<math>
+	<msub>
+		<mi>J</mi>
+		<mn>2</mn>
+	</msub>
+	<mo>≤</mo>
+	<mo>−</mo>
+	<mfrac>
+		<mrow>
+			<mi>λ</mi>
+			<mo>+</mo>
+			<mi>μ</mi>
+		</mrow>
+		<mn>2</mn>
+	</mfrac>
+	<mo fence="false" stretchy="false">‖</mo>
+	<mi>div</mi>
+	<mo>⁡</mo>
+	<mrow>
+		<mover>
+			<mrow>
+				<mi mathvariant="bold">u</mi>
+			</mrow>
+			<mo>˙</mo>
+		</mover>
+	</mrow>
+	<msubsup>
+		<mo fence="false" stretchy="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mn>2</mn>
+			</msup>
+		</mrow>
+		<mn>2</mn>
+	</msubsup>
+</math>

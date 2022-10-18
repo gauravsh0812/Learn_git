@@ -1,1 +1,22 @@
-<math>  <munder>    <mo movablelimits="true" form="prefix">sup</mo>    <mrow>      <mn>0</mn>      <mo>&#x2264;<!-- â¤ --></mo>      <mi>s</mi>      <mo>&#x2264;<!-- â¤ --></mo>      <mi>t</mi>    </mrow>  </munder>  <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>  <mi>P</mi>  <msubsup>    <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>    <mrow>      <msup>        <mi>L</mi>        <mn>2</mn>      </msup>    </mrow>    <mn>2</mn>  </msubsup></math>
+<?xml version="1.0" ?>
+<math>
+	<mfrac>
+		<mi>d</mi>
+		<mrow>
+			<mi>d</mi>
+			<mi>t</mi>
+		</mrow>
+	</mfrac>
+	<mo fence="false" stretchy="false">‖</mo>
+	<mi>P</mi>
+	<msubsup>
+		<mo fence="false" stretchy="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mn>2</mn>
+			</msup>
+		</mrow>
+		<mn>2</mn>
+	</msubsup>
+</math>

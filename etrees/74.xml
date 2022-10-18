@@ -1,1 +1,16 @@
-<math>  <mi>v</mi>  <mo>=</mo>  <mn>0</mn>  <mtext>&#xA0;</mtext>  <mtext>&#xA0;</mtext>  <mstyle displaystyle="false" scriptlevel="0">    <mtext>on</mtext>  </mstyle>  <mtext>&#xA0;</mtext>  <mtext>&#xA0;</mtext>  <msub>    <mi>B</mi>    <mi>R</mi>  </msub></math>
+<?xml version="1.0" ?>
+<math>
+	<munder>
+		<mo form="prefix">sup</mo>
+		<mrow>
+			<mn>0</mn>
+			<mo>≤</mo>
+			<mi>t</mi>
+			<mo>≤</mo>
+			<msub>
+				<mi>T</mi>
+				<mn>0</mn>
+			</msub>
+		</mrow>
+	</munder>
+</math>

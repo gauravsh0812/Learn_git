@@ -1,1 +1,47 @@
-<math>  <munder>    <mo form="prefix">inf</mo>    <mrow>      <mi>x</mi>      <mo>&#x2208;<!-- â --></mo>      <msub>        <mi>B</mi>        <mi>R</mi>      </msub>    </mrow>  </munder>  <msub>    <mi>&#x03C1;<!-- Ï --></mi>    <mn>0</mn>  </msub>  <mo>(</mo>  <mi>x</mi>  <mo>)</mo>  <mo>&gt;</mo>  <mn>0</mn>  <mo>,</mo>  <mtext>&#xA0;</mtext></math>
+<?xml version="1.0" ?>
+<math>
+	<munder>
+		<mo form="prefix">sup</mo>
+		<mrow>
+			<mn>0</mn>
+			<mo>≤</mo>
+			<mi>t</mi>
+			<mo>≤</mo>
+			<msub>
+				<mi>T</mi>
+				<mn>0</mn>
+			</msub>
+		</mrow>
+	</munder>
+	<mrow>
+		<mo>(</mo>
+		<mi>ψ</mi>
+		<mo>(</mo>
+		<mi>t</mi>
+		<mo>)</mo>
+		<mo>+</mo>
+		<mo fence="false">‖</mo>
+		<msqrt>
+			<mi>ρ</mi>
+		</msqrt>
+		<mrow>
+			<mover>
+				<mrow>
+					<mi mathvariant="bold">u</mi>
+				</mrow>
+				<mo>˙</mo>
+			</mover>
+		</mrow>
+		<msubsup>
+			<mo fence="false">‖</mo>
+			<mrow>
+				<msup>
+					<mi>L</mi>
+					<mn>2</mn>
+				</msup>
+			</mrow>
+			<mn>2</mn>
+		</msubsup>
+		<mo>)</mo>
+	</mrow>
+</math>

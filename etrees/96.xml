@@ -1,1 +1,27 @@
-<math>  <msup>    <mi>L</mi>    <mi>p</mi>  </msup>  <mo>=</mo>  <msup>    <mi>L</mi>    <mi>p</mi>  </msup>  <mo>(</mo>  <msup>    <mrow>      <mi mathvariant="double-struck">R</mi>    </mrow>    <mn>2</mn>  </msup>  <mo>)</mo>  <mo>,</mo>  <mspace width="1em" />  <msup>    <mi>W</mi>    <mrow>      <mi>k</mi>      <mo>,</mo>      <mi>p</mi>    </mrow>  </msup>  <mo>=</mo>  <msup>    <mi>W</mi>    <mrow>      <mi>k</mi>      <mo>,</mo>      <mi>p</mi>    </mrow>  </msup>  <mo>(</mo>  <msup>    <mrow>      <mi mathvariant="double-struck">R</mi>    </mrow>    <mn>2</mn>  </msup>  <mo>)</mo></math>
+<?xml version="1.0" ?>
+<math>
+	<munder>
+		<mo form="prefix" movablelimits="true">sup</mo>
+		<mrow>
+			<mn>0</mn>
+			<mo>≤</mo>
+			<mi>s</mi>
+			<mo>≤</mo>
+			<mi>t</mi>
+		</mrow>
+	</munder>
+	<mo fence="false" stretchy="false">‖</mo>
+	<mrow>
+		<mi mathvariant="bold">b</mi>
+	</mrow>
+	<msubsup>
+		<mo fence="false" stretchy="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mn>4</mn>
+			</msup>
+		</mrow>
+		<mn>4</mn>
+	</msubsup>
+</math>

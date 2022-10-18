@@ -1,1 +1,27 @@
-<math>  <munder>    <mo movablelimits="true" form="prefix">sup</mo>    <mrow>      <mn>0</mn>      <mo>&#x2264;<!-- â¤ --></mo>      <mi>s</mi>      <mo>&#x2264;<!-- â¤ --></mo>      <mi>t</mi>    </mrow>  </munder>  <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>  <msqrt>    <mi>&#x03C1;<!-- Ï --></mi>  </msqrt>  <mrow>    <mover>      <mrow>        <mi mathvariant="bold">u</mi>      </mrow>      <mo>&#x02D9;<!-- Ë --></mo>    </mover>  </mrow>  <msubsup>    <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>    <mrow>      <msup>        <mi>L</mi>        <mn>2</mn>      </msup>    </mrow>    <mn>2</mn>  </msubsup></math>
+<?xml version="1.0" ?>
+<math>
+	<mo>−</mo>
+	<mi>μ</mi>
+	<mi>Δ</mi>
+	<msub>
+		<mrow>
+			<mi mathvariant="bold">u</mi>
+		</mrow>
+		<mn>0</mn>
+	</msub>
+	<mo>−</mo>
+	<mo>(</mo>
+	<mi>μ</mi>
+	<mo>+</mo>
+	<mi>λ</mi>
+	<mo>)</mo>
+	<mi>∇</mi>
+	<mi>div</mi>
+	<mo>⁡</mo>
+	<msub>
+		<mrow>
+			<mi mathvariant="bold">u</mi>
+		</mrow>
+		<mn>0</mn>
+	</msub>
+</math>

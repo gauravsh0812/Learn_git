@@ -1,1 +1,42 @@
-<math>  <msubsup>    <mi>P</mi>    <mrow>      <mn>0</mn>    </mrow>    <mrow>      <mi>R</mi>    </mrow>  </msubsup>  <mo>&#x2192;<!-- â --></mo>  <msub>    <mi>P</mi>    <mrow>      <mn>0</mn>    </mrow>  </msub>  <mspace width="1em" />  <mspace width="thinmathspace" />  <mspace width="thinmathspace" />  <msup>    <mi>L</mi>    <mn>1</mn>  </msup>  <mo>(</mo>  <msup>    <mrow>      <mi mathvariant="double-struck">R</mi>    </mrow>    <mn>2</mn>  </msup>  <mo>)</mo>  <mo>&#x2229;<!-- â© --></mo>  <msup>    <mi>H</mi>    <mrow>      <mn>1</mn>    </mrow>  </msup>  <mo>(</mo>  <msup>    <mrow>      <mi mathvariant="double-struck">R</mi>    </mrow>    <mn>2</mn>  </msup>  <mo>)</mo>  <mo>&#x2229;<!-- â© --></mo>  <msup>    <mi>W</mi>    <mrow>      <mn>1</mn>      <mo>,</mo>      <mi>q</mi>    </mrow>  </msup>  <mo>(</mo>  <msup>    <mrow>      <mi mathvariant="double-struck">R</mi>    </mrow>    <mn>2</mn>  </msup>  <mo>)</mo>  <mo>,</mo>  <mspace width="thinmathspace" />  <mspace width="thinmathspace" />  <mrow>    <mi>a</mi>    <mi>s</mi>  </mrow>  <mspace width="thinmathspace" />  <mspace width="thinmathspace" />  <mi>R</mi>  <mo>&#x2192;<!-- â --></mo>  <mi>&#x221E;<!-- â --></mi></math>
+<?xml version="1.0" ?>
+<math>
+	<munder>
+		<mo form="prefix">sup</mo>
+		<mrow>
+			<mn>0</mn>
+			<mo>≤</mo>
+			<mi>s</mi>
+			<mo>≤</mo>
+			<mi>t</mi>
+		</mrow>
+	</munder>
+	<mo fence="false">‖</mo>
+	<mi>ρ</mi>
+	<msup>
+		<mrow>
+			<mover>
+				<mi>x</mi>
+				<mo>¯</mo>
+			</mover>
+		</mrow>
+		<mi>a</mi>
+	</msup>
+	<msub>
+		<mo fence="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>H</mi>
+				<mn>1</mn>
+			</msup>
+			<mo>∩</mo>
+			<msup>
+				<mi>W</mi>
+				<mrow>
+					<mn>1</mn>
+					<mo>,</mo>
+					<mi>q</mi>
+				</mrow>
+			</msup>
+		</mrow>
+	</msub>
+</math>

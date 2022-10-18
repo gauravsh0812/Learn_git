@@ -1,1 +1,22 @@
-<math>  <msubsup>    <mo>&#x222B;<!-- â« --></mo>    <mn>0</mn>    <mi>t</mi>  </msubsup>  <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>  <msup>    <mi>&#x2207;<!-- â --></mi>    <mn>2</mn>  </msup>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <msubsup>    <mo fence="false" stretchy="false">&#x2016;<!-- â --></mo>    <mrow>      <msup>        <mi>L</mi>        <mn>2</mn>      </msup>      <mo>&#x2229;<!-- â© --></mo>      <msup>        <mi>L</mi>        <mi>q</mi>      </msup>    </mrow>    <mn>2</mn>  </msubsup>  <mi>d</mi>  <mi>s</mi></math>
+<?xml version="1.0" ?>
+<math>
+	<msub>
+		<mi>P</mi>
+		<mi>t</mi>
+	</msub>
+	<mo>+</mo>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>⋅</mo>
+	<mi>∇</mi>
+	<mi>P</mi>
+	<mo>+</mo>
+	<mn>2</mn>
+	<mi>P</mi>
+	<mi>div</mi>
+	<mo>⁡</mo>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+</math>

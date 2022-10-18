@@ -1,1 +1,22 @@
-<math>  <mfrac>    <mi>d</mi>    <mrow>      <mi>d</mi>      <mi>t</mi>    </mrow>  </mfrac>  <mo>&#x222B;<!-- â« --></mo>  <mi>&#x03C1;<!-- Ï --></mi>  <msup>    <mrow>      <mover>        <mi>x</mi>        <mo>&#x00AF;<!-- Â¯ --></mo>      </mover>    </mrow>    <mrow>      <mi>a</mi>    </mrow>  </msup>  <mi>d</mi>  <mi>x</mi></math>
+<?xml version="1.0" ?>
+<math>
+	<mi>∇</mi>
+	<mi>ρ</mi>
+	<mo>⋅</mo>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>=</mo>
+	<mi>∇</mi>
+	<mi>ρ</mi>
+	<msup>
+		<mrow>
+			<mover>
+				<mi>x</mi>
+				<mo>¯</mo>
+			</mover>
+		</mrow>
+		<mi>a</mi>
+	</msup>
+	<mo>⋅</mo>
+</math>

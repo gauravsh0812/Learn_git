@@ -1,1 +1,24 @@
-<math>  <msub>    <mi>J</mi>    <mn>4</mn>  </msub>  <mo>=</mo>  <mo>&#x222B;<!-- â« --></mo>  <msub>    <mi>&#x2202;<!-- â --></mi>    <mi>j</mi>  </msub>  <msup>    <mrow>      <mover>        <mi>u</mi>        <mo>&#x02D9;<!-- Ë --></mo>      </mover>    </mrow>    <mi>j</mi>  </msup>  <mrow>    <mi mathvariant="bold">b</mi>  </mrow>  <mo>&#x22C5;<!-- â --></mo>  <msub>    <mrow>      <mi mathvariant="bold">b</mi>    </mrow>    <mi>t</mi>  </msub>  <mi>d</mi>  <mi>x</mi>  <mo>+</mo>  <mfrac>    <mn>1</mn>    <mn>2</mn>  </mfrac>  <mo>&#x222B;<!-- â« --></mo>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <mo>&#x22C5;<!-- â --></mo>  <mi>&#x2207;<!-- â --></mi>  <msup>    <mrow>      <mover>        <mi>u</mi>        <mo>&#x02D9;<!-- Ë --></mo>      </mover>    </mrow>    <mi>j</mi>  </msup>  <msub>    <mi>&#x2202;<!-- â --></mi>    <mi>j</mi>  </msub>  <mrow>    <mo>|</mo>  </mrow>  <mrow>    <mi mathvariant="bold">b</mi>  </mrow>  <msup>    <mrow>      <mo>|</mo>    </mrow>    <mn>2</mn>  </msup>  <mi>d</mi>  <mi>x</mi>  <mspace linebreak="newline" /></math>
+<?xml version="1.0" ?>
+<math>
+	<mfrac>
+		<mi>d</mi>
+		<mrow>
+			<mi>d</mi>
+			<mi>t</mi>
+		</mrow>
+	</mfrac>
+	<mo>∫</mo>
+	<mi>ρ</mi>
+	<msub>
+		<mi>φ</mi>
+		<mrow>
+			<mn>2</mn>
+			<msub>
+				<mi>N</mi>
+				<mn>0</mn>
+			</msub>
+		</mrow>
+	</msub>
+	<mi>d</mi>
+	<mi>x</mi>
+</math>

@@ -1,1 +1,25 @@
-<math>  <mfrac>    <mn>1</mn>    <mn>2</mn>  </mfrac>  <mfrac>    <mi>d</mi>    <mrow>      <mi>d</mi>      <mi>t</mi>    </mrow>  </mfrac>  <mo>&#x222B;<!-- â« --></mo>  <mi>&#x03C1;<!-- Ï --></mi>  <mrow>    <mo>|</mo>  </mrow>  <mrow>    <mover>      <mrow>        <mi mathvariant="bold">u</mi>      </mrow>      <mo>&#x02D9;<!-- Ë --></mo>    </mover>  </mrow>  <msup>    <mrow>      <mo>|</mo>    </mrow>    <mn>2</mn>  </msup>  <mstyle displaystyle="false" scriptlevel="0">    <mtext>d</mtext>  </mstyle>  <mi>x</mi></math>
+<?xml version="1.0" ?>
+<math>
+	<munder>
+		<mo form="prefix">inf</mo>
+		<mrow>
+			<mi>x</mi>
+			<mo>∈</mo>
+			<msub>
+				<mi>B</mi>
+				<mi>R</mi>
+			</msub>
+		</mrow>
+	</munder>
+	<msub>
+		<mi>ρ</mi>
+		<mn>0</mn>
+	</msub>
+	<mo>(</mo>
+	<mi>x</mi>
+	<mo>)</mo>
+	<mo>&gt;</mo>
+	<mn>0</mn>
+	<mo>,</mo>
+	<mtext> </mtext>
+</math>

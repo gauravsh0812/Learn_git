@@ -1,1 +1,60 @@
-<math>  <mrow>    <mi mathvariant="fraktur">D</mi>  </mrow>  <mo>(</mo>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <mo>)</mo>  <mo>=</mo>  <mfrac>    <mn>1</mn>    <mn>2</mn>  </mfrac>  <mo>(</mo>  <mi>&#x2207;<!-- â --></mi>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <mo>+</mo>  <mo>(</mo>  <mi>&#x2207;<!-- â --></mi>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <msup>    <mo>)</mo>    <mrow>      <mi>t</mi>      <mi>r</mi>    </mrow>  </msup>  <mo>)</mo></math>
+<?xml version="1.0" ?>
+<math>
+	<munder>
+		<mo form="prefix">inf</mo>
+		<mrow>
+			<mn>0</mn>
+			<mo>≤</mo>
+			<mi>t</mi>
+			<mo>≤</mo>
+			<msub>
+				<mi>T</mi>
+				<mn>0</mn>
+			</msub>
+		</mrow>
+	</munder>
+	<msub>
+		<mo>∫</mo>
+		<mrow>
+			<msub>
+				<mi>B</mi>
+				<mrow>
+					<mi>N</mi>
+				</mrow>
+			</msub>
+		</mrow>
+	</msub>
+	<mi>ρ</mi>
+	<mo>(</mo>
+	<mi>x</mi>
+	<mo>,</mo>
+	<mi>t</mi>
+	<mo>)</mo>
+	<mi>d</mi>
+	<mi>x</mi>
+	<mo>≥</mo>
+	<mfrac>
+		<mn>1</mn>
+		<mn>4</mn>
+	</mfrac>
+	<msub>
+		<mo>∫</mo>
+		<mrow>
+			<msup>
+				<mrow>
+					<mi mathvariant="double-struck">R</mi>
+				</mrow>
+				<mn>2</mn>
+			</msup>
+		</mrow>
+	</msub>
+	<msub>
+		<mi>ρ</mi>
+		<mn>0</mn>
+	</msub>
+	<mo>(</mo>
+	<mi>x</mi>
+	<mo>)</mo>
+	<mi>d</mi>
+	<mi>x</mi>
+</math>

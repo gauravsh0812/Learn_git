@@ -1,1 +1,47 @@
-<math>  <msub>    <mi>J</mi>    <mn>3</mn>  </msub>  <mo>=</mo>  <mo>&#x222B;<!-- â« --></mo>  <mo>(</mo>  <msub>    <mi>&#x2202;<!-- â --></mi>    <mi>j</mi>  </msub>  <msup>    <mrow>      <mover>        <mi>u</mi>        <mo>&#x02D9;<!-- Ë --></mo>      </mover>    </mrow>    <mi>j</mi>  </msup>  <msub>    <mi>P</mi>    <mi>t</mi>  </msub>  <mo>+</mo>  <msub>    <mi>&#x2202;<!-- â --></mi>    <mi>j</mi>  </msub>  <mi>P</mi>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <mo>&#x22C5;<!-- â --></mo>  <mi>&#x2207;<!-- â --></mi>  <msup>    <mrow>      <mover>        <mi>u</mi>        <mo>&#x02D9;<!-- Ë --></mo>      </mover>    </mrow>    <mi>j</mi>  </msup>  <mo>)</mo>  <mi>d</mi>  <mi>x</mi>  <mspace linebreak="newline" /></math>
+<?xml version="1.0" ?>
+<math>
+	<msup>
+		<mi>L</mi>
+		<mi>p</mi>
+	</msup>
+	<mo>=</mo>
+	<msup>
+		<mi>L</mi>
+		<mi>p</mi>
+	</msup>
+	<mo>(</mo>
+	<msup>
+		<mrow>
+			<mi mathvariant="double-struck">R</mi>
+		</mrow>
+		<mn>2</mn>
+	</msup>
+	<mo>)</mo>
+	<mo>,</mo>
+	<mspace width="1em"/>
+	<msup>
+		<mi>W</mi>
+		<mrow>
+			<mi>k</mi>
+			<mo>,</mo>
+			<mi>p</mi>
+		</mrow>
+	</msup>
+	<mo>=</mo>
+	<msup>
+		<mi>W</mi>
+		<mrow>
+			<mi>k</mi>
+			<mo>,</mo>
+			<mi>p</mi>
+		</mrow>
+	</msup>
+	<mo>(</mo>
+	<msup>
+		<mrow>
+			<mi mathvariant="double-struck">R</mi>
+		</mrow>
+		<mn>2</mn>
+	</msup>
+	<mo>)</mo>
+</math>

@@ -1,1 +1,36 @@
-<math>  <msub>    <mi>K</mi>    <mn>1</mn>  </msub>  <mo>=</mo>  <mo>&#x222B;<!-- â« --></mo>  <mi>div</mi>  <mo>&#x2061;<!-- â¡ --></mo>  <msub>    <mrow>      <mi mathvariant="bold">u</mi>    </mrow>    <mi>t</mi>  </msub>  <mi>P</mi>  <mi>d</mi>  <mi>x</mi>  <mo>+</mo>  <mo>&#x222B;<!-- â« --></mo>  <mi>div</mi>  <mo>&#x2061;<!-- â¡ --></mo>  <mo>(</mo>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <mo>&#x22C5;<!-- â --></mo>  <mi>&#x2207;<!-- â --></mi>  <mrow>    <mi mathvariant="bold">u</mi>  </mrow>  <mo>)</mo>  <mi>P</mi>  <mi>d</mi>  <mi>x</mi>  <mspace linebreak="newline" /></math>
+<?xml version="1.0" ?>
+<math>
+	<msubsup>
+		<mrow>
+			<mi mathvariant="bold">b</mi>
+		</mrow>
+		<mn>0</mn>
+		<mi>R</mi>
+	</msubsup>
+	<msup>
+		<mrow>
+			<mover>
+				<mi>x</mi>
+				<mo>¯</mo>
+			</mover>
+		</mrow>
+		<mi>a</mi>
+	</msup>
+	<mo>→</mo>
+	<msub>
+		<mrow>
+			<mi mathvariant="bold">b</mi>
+		</mrow>
+		<mn>0</mn>
+	</msub>
+	<msup>
+		<mrow>
+			<mover>
+				<mi>x</mi>
+				<mo>¯</mo>
+			</mover>
+		</mrow>
+		<mi>a</mi>
+	</msup>
+	<mspace width="1em"/>
+</math>

@@ -1,1 +1,32 @@
-<math>  <mfrac>    <mn>1</mn>    <mi>r</mi>  </mfrac>  <mfrac>    <mi>d</mi>    <mrow>      <mi>d</mi>      <mi>t</mi>    </mrow>  </mfrac>  <mo>&#x222B;<!-- â« --></mo>  <mrow>    <mo>|</mo>  </mrow>  <mi>&#x2207;<!-- â --></mi>  <mi>P</mi>  <msup>    <mrow>      <mo>|</mo>    </mrow>    <mi>r</mi>  </msup>  <mi>d</mi>  <mi>x</mi></math>
+<?xml version="1.0" ?>
+<math>
+	<mfrac>
+		<mi>d</mi>
+		<mrow>
+			<mi>d</mi>
+			<mi>t</mi>
+		</mrow>
+	</mfrac>
+	<mo fence="false" stretchy="false">‖</mo>
+	<msqrt>
+		<mi>ρ</mi>
+	</msqrt>
+	<mrow>
+		<mover>
+			<mrow>
+				<mi mathvariant="bold">u</mi>
+			</mrow>
+			<mo>˙</mo>
+		</mover>
+	</mrow>
+	<msubsup>
+		<mo fence="false" stretchy="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mn>2</mn>
+			</msup>
+		</mrow>
+		<mn>2</mn>
+	</msubsup>
+</math>
