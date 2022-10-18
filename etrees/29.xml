@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<math>
+	<munder>
+		<mo form="prefix">lim</mo>
+		<mrow>
+			<mi>R</mi>
+			<mo>→</mo>
+			<mi>∞</mi>
+		</mrow>
+	</munder>
+</math>

@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<math>
+	<mfrac>
+		<mi>d</mi>
+		<mrow>
+			<mi>d</mi>
+			<mi>t</mi>
+		</mrow>
+	</mfrac>
+	<mo fence="false" stretchy="false">‖</mo>
+	<mrow>
+		<mi mathvariant="bold">b</mi>
+	</mrow>
+	<msubsup>
+		<mo fence="false" stretchy="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mn>4</mn>
+			</msup>
+		</mrow>
+		<mn>4</mn>
+	</msubsup>
+</math>

@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<math>
+	<mo fence="false">‖</mo>
+	<mi>v</mi>
+	<msup>
+		<mrow>
+			<mover>
+				<mi>x</mi>
+				<mo>¯</mo>
+			</mover>
+		</mrow>
+		<mrow>
+			<mo>−</mo>
+			<mn>1</mn>
+		</mrow>
+	</msup>
+	<msub>
+		<mo fence="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mrow>
+					<mn>2</mn>
+				</mrow>
+			</msup>
+			<mo>(</mo>
+			<mi>Ω</mi>
+			<mo>)</mo>
+		</mrow>
+	</msub>
+</math>

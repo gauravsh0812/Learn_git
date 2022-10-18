@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<math>
+	<mi>∇</mi>
+	<mi>ρ</mi>
+	<mo>⋅</mo>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>=</mo>
+	<mi>∇</mi>
+	<mi>ρ</mi>
+	<msup>
+		<mrow>
+			<mover>
+				<mi>x</mi>
+				<mo>¯</mo>
+			</mover>
+		</mrow>
+		<mi>a</mi>
+	</msup>
+	<mo>⋅</mo>
+</math>

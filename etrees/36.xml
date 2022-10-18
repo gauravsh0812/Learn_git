@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<math>
+	<msub>
+		<mi>J</mi>
+		<mn>1</mn>
+	</msub>
+	<mo>=</mo>
+	<mo>−</mo>
+	<mi>μ</mi>
+	<mo>∫</mo>
+	<mo>(</mo>
+	<msub>
+		<mi>∂</mi>
+		<mi>i</mi>
+	</msub>
+	<msup>
+		<mrow>
+			<mover>
+				<mi>u</mi>
+				<mo>˙</mo>
+			</mover>
+		</mrow>
+		<mi>j</mi>
+	</msup>
+	<msub>
+		<mi>∂</mi>
+		<mi>t</mi>
+	</msub>
+	<msub>
+		<mi>∂</mi>
+		<mi>i</mi>
+	</msub>
+	<msup>
+		<mi>u</mi>
+		<mi>j</mi>
+	</msup>
+	<mo>+</mo>
+	<mi>Δ</mi>
+	<msup>
+		<mi>u</mi>
+		<mi>j</mi>
+	</msup>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>⋅</mo>
+	<mi>∇</mi>
+	<msup>
+		<mrow>
+			<mover>
+				<mi>u</mi>
+				<mo>˙</mo>
+			</mover>
+		</mrow>
+		<mi>j</mi>
+	</msup>
+	<mo>)</mo>
+	<mi>d</mi>
+	<mi>x</mi>
+	<mspace linebreak="newline"/>
+</math>

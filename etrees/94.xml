@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<math>
+	<mo>(</mo>
+	<mi>ρ</mi>
+	<mo>,</mo>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>,</mo>
+	<mi>P</mi>
+	<mo>,</mo>
+	<mrow>
+		<mi mathvariant="bold">b</mi>
+	</mrow>
+	<mo>)</mo>
+	<mo>(</mo>
+	<mi>x</mi>
+	<mo>,</mo>
+	<mi>t</mi>
+	<mo>)</mo>
+	<mo>→</mo>
+	<mo>(</mo>
+	<mn>0</mn>
+	<mo>,</mo>
+	<mrow>
+		<mn mathvariant="bold">0</mn>
+	</mrow>
+	<mo>,</mo>
+	<mn>0</mn>
+	<mo>,</mo>
+	<mrow>
+		<mn mathvariant="bold">0</mn>
+	</mrow>
+	<mo>)</mo>
+	<mo>,</mo>
+	<mtext> </mtext>
+	<mtext> </mtext>
+	<mrow>
+		<mo>|</mo>
+	</mrow>
+	<mi>x</mi>
+	<mrow>
+		<mo>|</mo>
+	</mrow>
+	<mo>→</mo>
+	<mo>+</mo>
+	<mi>∞</mi>
+	<mo>,</mo>
+	<mtext> </mtext>
+	<mi>t</mi>
+	<mo>&gt;</mo>
+	<mn>0</mn>
+</math>

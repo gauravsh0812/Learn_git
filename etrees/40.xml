@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<math>
+	<mi>P</mi>
+	<mo>(</mo>
+	<mrow>
+		<mi mathvariant="bold">X</mi>
+	</mrow>
+	<mo>(</mo>
+	<mi>x</mi>
+	<mo>,</mo>
+	<mi>t</mi>
+	<mo>)</mo>
+	<mo>,</mo>
+	<mi>t</mi>
+	<mo>)</mo>
+	<mo>=</mo>
+	<mi>exp</mi>
+	<mo>⁡</mo>
+	<mrow>
+		<mo>(</mo>
+		<mo>−</mo>
+		<mn>2</mn>
+		<msubsup>
+			<mo>∫</mo>
+			<mrow>
+				<mn>0</mn>
+			</mrow>
+			<mi>t</mi>
+		</msubsup>
+		<mi>div</mi>
+		<mo>⁡</mo>
+		<mrow>
+			<mi mathvariant="bold">u</mi>
+		</mrow>
+		<mi>d</mi>
+		<mi>s</mi>
+		<mo>)</mo>
+	</mrow>
+</math>

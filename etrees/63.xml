@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<math>
+	<mfrac>
+		<mn>1</mn>
+		<mi>r</mi>
+	</mfrac>
+	<mfrac>
+		<mi>d</mi>
+		<mrow>
+			<mi>d</mi>
+			<mi>t</mi>
+		</mrow>
+	</mfrac>
+	<mo>∫</mo>
+	<mrow>
+		<mo>|</mo>
+	</mrow>
+	<mi>∇</mi>
+	<mi>P</mi>
+	<msup>
+		<mrow>
+			<mo>|</mo>
+		</mrow>
+		<mi>r</mi>
+	</msup>
+	<mi>d</mi>
+	<mi>x</mi>
+</math>

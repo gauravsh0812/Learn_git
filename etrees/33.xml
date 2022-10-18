@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<math>
+	<mo>(</mo>
+	<mi>∇</mi>
+	<mi>P</mi>
+	<msub>
+		<mo>)</mo>
+		<mrow>
+			<mi>t</mi>
+		</mrow>
+	</msub>
+	<mo>+</mo>
+	<mi>∇</mi>
+	<mo>(</mo>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>⋅</mo>
+	<mi>∇</mi>
+	<mi>P</mi>
+	<mo>)</mo>
+</math>

@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<math>
+	<msub>
+		<mi>P</mi>
+		<mi>t</mi>
+	</msub>
+	<mo>+</mo>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>⋅</mo>
+	<mi>∇</mi>
+	<mi>P</mi>
+	<mo>+</mo>
+	<mn>2</mn>
+	<mi>P</mi>
+	<mi>div</mi>
+	<mo>⁡</mo>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+</math>

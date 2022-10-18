@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<math>
+	<mo>−</mo>
+	<mi>μ</mi>
+	<mi>Δ</mi>
+	<mrow>
+		<mo>(</mo>
+		<msubsup>
+			<mrow>
+				<mover>
+					<mrow>
+						<mi mathvariant="bold">u</mi>
+					</mrow>
+					<mo>~</mo>
+				</mover>
+			</mrow>
+			<mn>0</mn>
+			<mrow>
+				<msub>
+					<mi>R</mi>
+					<mi>j</mi>
+				</msub>
+			</mrow>
+		</msubsup>
+		<mo>−</mo>
+		<msub>
+			<mrow>
+				<mi mathvariant="bold">u</mi>
+			</mrow>
+			<mrow>
+				<mn>0</mn>
+			</mrow>
+		</msub>
+		<mo>)</mo>
+	</mrow>
+</math>

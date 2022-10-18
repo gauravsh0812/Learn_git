@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<math>
+	<munder>
+		<mo form="prefix">inf</mo>
+		<mrow>
+			<mn>0</mn>
+			<mo>≤</mo>
+			<mi>t</mi>
+			<mo>≤</mo>
+			<msub>
+				<mi>T</mi>
+				<mn>1</mn>
+			</msub>
+		</mrow>
+	</munder>
+	<msub>
+		<mo>∫</mo>
+		<mrow>
+			<msub>
+				<mi>B</mi>
+				<mrow>
+					<mn>2</mn>
+					<msub>
+						<mi>N</mi>
+						<mn>0</mn>
+					</msub>
+				</mrow>
+			</msub>
+		</mrow>
+	</msub>
+	<mi>ρ</mi>
+	<mi>d</mi>
+	<mi>x</mi>
+</math>

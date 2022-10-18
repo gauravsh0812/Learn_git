@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<math>
+	<mi>ψ</mi>
+	<mo>(</mo>
+	<mi>t</mi>
+	<mo>)</mo>
+	<mo>≤</mo>
+	<mi>exp</mi>
+	<mo>⁡</mo>
+	<mrow>
+		<mo>{</mo>
+		<mi>C</mi>
+		<mi>exp</mi>
+		<mo>⁡</mo>
+		<mrow>
+			<mo>{</mo>
+			<mi>C</mi>
+			<msubsup>
+				<mo>∫</mo>
+				<mrow>
+					<mn>0</mn>
+				</mrow>
+				<mrow>
+					<mi>t</mi>
+				</mrow>
+			</msubsup>
+			<msup>
+				<mi>ψ</mi>
+				<mrow>
+					<mi>α</mi>
+				</mrow>
+			</msup>
+			<mi>d</mi>
+			<mi>s</mi>
+			<mo>}</mo>
+		</mrow>
+		<mo>}</mo>
+	</mrow>
+</math>

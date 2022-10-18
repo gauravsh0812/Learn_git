@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<math>
+	<msub>
+		<mi>K</mi>
+		<mn>5</mn>
+	</msub>
+	<mo>≤</mo>
+	<mo>−</mo>
+	<mfrac>
+		<mi>d</mi>
+		<mrow>
+			<mi>d</mi>
+			<mi>t</mi>
+		</mrow>
+	</mfrac>
+	<mo>∫</mo>
+	<mrow>
+		<mi mathvariant="bold">b</mi>
+	</mrow>
+	<mo>⋅</mo>
+	<mi>∇</mi>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mo>⋅</mo>
+	<mrow>
+		<mi mathvariant="bold">b</mi>
+	</mrow>
+	<mi>d</mi>
+	<mi>x</mi>
+</math>

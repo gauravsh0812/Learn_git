@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<math>
+	<msub>
+		<mrow>
+			<mover>
+				<mrow>
+					<mi mathvariant="bold">u</mi>
+				</mrow>
+				<mo>~</mo>
+			</mover>
+		</mrow>
+		<mn>0</mn>
+	</msub>
+	<mo>=</mo>
+	<msub>
+		<mrow>
+			<mi mathvariant="bold">u</mi>
+		</mrow>
+		<mn>0</mn>
+	</msub>
+</math>

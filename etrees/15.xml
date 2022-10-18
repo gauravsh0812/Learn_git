@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<math>
+	<munder>
+		<mo form="prefix" movablelimits="true">sup</mo>
+		<mrow>
+			<mn>0</mn>
+			<mo>≤</mo>
+			<mi>s</mi>
+			<mo>≤</mo>
+			<mi>t</mi>
+		</mrow>
+	</munder>
+	<mo fence="false" stretchy="false">‖</mo>
+	<msqrt>
+		<mi>ρ</mi>
+	</msqrt>
+	<mrow>
+		<mover>
+			<mrow>
+				<mi mathvariant="bold">u</mi>
+			</mrow>
+			<mo>˙</mo>
+		</mover>
+	</mrow>
+	<msubsup>
+		<mo fence="false" stretchy="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mn>2</mn>
+			</msup>
+		</mrow>
+		<mn>2</mn>
+	</msubsup>
+</math>

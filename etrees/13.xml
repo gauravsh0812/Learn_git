@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<math>
+	<mo>∫</mo>
+	<mi>ρ</mi>
+	<mi>d</mi>
+	<mi>x</mi>
+	<mo>=</mo>
+	<mo>∫</mo>
+	<msub>
+		<mi>ρ</mi>
+		<mn>0</mn>
+	</msub>
+	<mi>d</mi>
+	<mi>x</mi>
+</math>

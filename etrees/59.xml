@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<math>
+	<msub>
+		<mi>J</mi>
+		<mn>5</mn>
+	</msub>
+	<mo>≤</mo>
+	<mfrac>
+		<mi>μ</mi>
+		<mn>8</mn>
+	</mfrac>
+	<mo fence="false" stretchy="false">‖</mo>
+	<mi>∇</mi>
+	<mrow>
+		<mover>
+			<mrow>
+				<mi mathvariant="bold">u</mi>
+			</mrow>
+			<mo>˙</mo>
+		</mover>
+	</mrow>
+	<msubsup>
+		<mo fence="false" stretchy="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mn>2</mn>
+			</msup>
+		</mrow>
+		<mn>2</mn>
+	</msubsup>
+</math>

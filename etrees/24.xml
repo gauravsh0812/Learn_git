@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<math>
+	<mi>ψ</mi>
+	<mo>(</mo>
+	<mi>t</mi>
+	<mo>)</mo>
+	<mo>≜</mo>
+	<mn>1</mn>
+	<mo>+</mo>
+	<mo fence="false">‖</mo>
+	<msqrt>
+		<mi>ρ</mi>
+	</msqrt>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<msub>
+		<mo fence="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mn>2</mn>
+			</msup>
+		</mrow>
+	</msub>
+	<mo>+</mo>
+	<mo fence="false">‖</mo>
+	<mi>∇</mi>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<msub>
+		<mo fence="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mn>2</mn>
+			</msup>
+		</mrow>
+	</msub>
+</math>

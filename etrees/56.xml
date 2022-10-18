@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<math>
+	<msub>
+		<mo>∫</mo>
+		<mrow>
+			<msup>
+				<mrow>
+					<mi mathvariant="double-struck">R</mi>
+				</mrow>
+				<mn>2</mn>
+			</msup>
+		</mrow>
+	</msub>
+	<msub>
+		<mi>ρ</mi>
+		<mn>0</mn>
+	</msub>
+	<mi>d</mi>
+	<mi>x</mi>
+	<mo>=</mo>
+	<mn>1</mn>
+</math>

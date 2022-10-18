@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<math>
+	<mi>B</mi>
+	<mo>(</mo>
+	<mi>t</mi>
+	<mo>)</mo>
+	<mo>≜</mo>
+	<mo>∫</mo>
+	<mi>P</mi>
+	<mi>div</mi>
+	<mo>⁡</mo>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mi>d</mi>
+	<mi>x</mi>
+	<mo>+</mo>
+	<mfrac>
+		<mn>1</mn>
+		<mn>2</mn>
+	</mfrac>
+	<mo>∫</mo>
+	<mi>div</mi>
+	<mo>⁡</mo>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<mrow>
+		<mo>|</mo>
+	</mrow>
+	<mrow>
+		<mi mathvariant="bold">b</mi>
+	</mrow>
+	<msup>
+		<mrow>
+			<mo>|</mo>
+		</mrow>
+		<mn>2</mn>
+	</msup>
+	<mi>d</mi>
+	<mi>x</mi>
+</math>

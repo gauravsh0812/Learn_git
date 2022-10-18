@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<math>
+	<msup>
+		<mi>L</mi>
+		<mi>p</mi>
+	</msup>
+	<mo>=</mo>
+	<msup>
+		<mi>L</mi>
+		<mi>p</mi>
+	</msup>
+	<mo>(</mo>
+	<msup>
+		<mrow>
+			<mi mathvariant="double-struck">R</mi>
+		</mrow>
+		<mn>2</mn>
+	</msup>
+	<mo>)</mo>
+	<mo>,</mo>
+	<mspace width="1em"/>
+	<msup>
+		<mi>W</mi>
+		<mrow>
+			<mi>k</mi>
+			<mo>,</mo>
+			<mi>p</mi>
+		</mrow>
+	</msup>
+	<mo>=</mo>
+	<msup>
+		<mi>W</mi>
+		<mrow>
+			<mi>k</mi>
+			<mo>,</mo>
+			<mi>p</mi>
+		</mrow>
+	</msup>
+	<mo>(</mo>
+	<msup>
+		<mrow>
+			<mi mathvariant="double-struck">R</mi>
+		</mrow>
+		<mn>2</mn>
+	</msup>
+	<mo>)</mo>
+</math>

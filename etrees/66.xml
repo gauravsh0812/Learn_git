@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<math>
+	<mo fence="false">‖</mo>
+	<msup>
+		<mi>ρ</mi>
+		<mi>η</mi>
+	</msup>
+	<mrow>
+		<mi mathvariant="bold">u</mi>
+	</mrow>
+	<msub>
+		<mo fence="false">‖</mo>
+		<mrow>
+			<msup>
+				<mi>L</mi>
+				<mrow>
+					<mo>(</mo>
+					<mn>2</mn>
+					<mo>+</mo>
+					<mi>ε</mi>
+					<mo>)</mo>
+					<mrow>
+						<mo>/</mo>
+					</mrow>
+					<mrow>
+						<mover>
+							<mi>η</mi>
+							<mo>~</mo>
+						</mover>
+					</mrow>
+				</mrow>
+			</msup>
+		</mrow>
+	</msub>
+</math>
