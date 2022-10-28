@@ -61,8 +61,8 @@ while keep_going:
                     latexpath = root + f"/20{yr}/{yr}{month}/latex_equations/{folder}/{tyf.split('_')[0]}_eqns/{eqn_num}.txt"
 
                     imagepath = root + f"/20{yr}/{yr}{month}/latex_images/{folder}/{tyf.split('_')[0]}_eqns/{eqn_num}.png0001-1.png"
-                    if not os.path.exists(imagepath):
-                        imagepath = root + f"/20{yr}/{yr}{month}/latex_images/{folder}/{tyf.split('_')[0]}_eqns/{eqn_num}.png"
+                    # if not os.path.exists(imagepath):
+                    #     imagepath = root + f"/20{yr}/{yr}{month}/latex_images/{folder}/{tyf.split('_')[0]}_eqns/{eqn_num}.png"
 
                     latex = open(latexpath).readlines()[0]
                     mml = open(mmlpath).readlines()[0]
