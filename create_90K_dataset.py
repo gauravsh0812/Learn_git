@@ -25,18 +25,18 @@ months = ["01", "02", "03", "04",
                   "05", "06", "07", "08",
                             "09", "10", "11", "12"]
 
-def write_eqn(mml, latex, imagepath, image_name):
-
-        if "\n" not in mml:
-            mml=mml+"\n"
-        omml.write(mml)
-
-        if "\n" not in latex:
-            latex=latex+"\n"
-        olatex.write(latex)
-
-        dst = f"OMML-90K-dataset/IMAGES-90K/{image_name}.png"
-        shutil.copyfile(imagepath, dst)
+# def write_eqn(mml, latex, imagepath, image_name):
+#
+#         if "\n" not in mml:
+#             mml=mml+"\n"
+#         omml.write(mml)
+#
+#         if "\n" not in latex:
+#             latex=latex+"\n"
+#         olatex.write(latex)
+#
+#         dst = f"OMML-90K-dataset/IMAGES-90K/{image_name}.png"
+#         shutil.copyfile(imagepath, dst)
 
 NEqn = 0
 
@@ -68,21 +68,23 @@ while keep_going:
                     mml = open(mmlpath).readlines()[0]
 
                     if (len(latex)>10) and (len(mml.split())>5) and ("&#xA0" not in mml):
+                        try:
+                            tok_mml, tok_len = token_main(mml)
+                            if (tok_len>=Lengthlower and tok_len < Lengthupper):#and (count_50 <= Num):
+                                count_50+=1
+                                image_name = f"20{yr}_{yr}{month}_{folder.split('.')[1]}_{tyf[0]}_{eqn_num}"
+                                # write_eqn(mml, latex, imagepath, image_name)
+                                trackfile.write(f"{NEqn} \t\t {image_name} \n")
+                                if "\n" not in mml:
+                                    mml=mml+"\n"
+                                omml.write(mml)
 
-                        tok_mml, tok_len = token_main(mml)
-                        if (tok_len>=Lengthlower and tok_len < Lengthupper):#and (count_50 <= Num):
-                            count_50+=1
-                            image_name = f"20{yr}_{yr}{month}_{folder.split('.')[1]}_{tyf[0]}_{eqn_num}"
-                            # write_eqn(mml, latex, imagepath, image_name)
-                            trackfile.write(f"{NEqn} \t\t {image_name} \n")
-                            if "\n" not in mml:
-                                mml=mml+"\n"
-                            omml.write(mml)
-
-                            if "\n" not in latex:
-                                latex=latex+"\n"
-                            olatex.write(latex)
-                            NEqn+=1
+                                if "\n" not in latex:
+                                    latex=latex+"\n"
+                                olatex.write(latex)
+                                NEqn+=1
+                        except:
+                            pass
 
 
                         # elif (tok_len>=50 and tok_len < 100) and (count_100 <= 35000):
