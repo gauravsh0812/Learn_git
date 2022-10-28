@@ -60,7 +60,7 @@ while keep_going:
                     mmlpath = root + f"/20{yr}/{yr}{month}/Simplified_mml/{folder}/{tyf}/{eqn_num}.txt"
                     latexpath = root + f"/20{yr}/{yr}{month}/latex_equations/{folder}/{tyf.split('_')[0]}_eqns/{eqn_num}.txt"
 
-                    imagepath = root + f"/20{yr}/{yr}{month}/latex_images/{folder}/{tyf.split('_')[0]}_eqns/{eqn_num}.png0001-1.png"
+                    # imagepath = root + f"/20{yr}/{yr}{month}/latex_images/{folder}/{tyf.split('_')[0]}_eqns/{eqn_num}.png0001-1.png"
                     # if not os.path.exists(imagepath):
                     #     imagepath = root + f"/20{yr}/{yr}{month}/latex_images/{folder}/{tyf.split('_')[0]}_eqns/{eqn_num}.png"
 
