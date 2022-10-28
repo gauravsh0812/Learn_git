@@ -73,8 +73,15 @@ while keep_going:
                         if (tok_len>=Lengthlower and tok_len < Lengthupper):#and (count_50 <= Num):
                             count_50+=1
                             image_name = f"20{yr}_{yr}{month}_{folder.split('.')[1]}_{tyf[0]}_{eqn_num}"
-                            write_eqn(mml, latex, imagepath, image_name)
+                            # write_eqn(mml, latex, imagepath, image_name)
                             trackfile.write(f"{NEqn} \t\t {image_name} \n")
+                            if "\n" not in mml:
+                                mml=mml+"\n"
+                            omml.write(mml)
+
+                            if "\n" not in latex:
+                                latex=latex+"\n"
+                            olatex.write(latex)
                             NEqn+=1
 
 
