@@ -63,34 +63,34 @@ for folder in etree_list:
                 if (len(latex)>10) and (len(mml.split())>5) and ("&#xA0" not in mml):
                     print(NEqn)
                     tok_mml, tok_len = token_main(mml)
-                    if (tok_len < 50) and (count_50 <= 10000):
+                    if (tok_len < 50):# and (count_50 <= 10000):
                         count_50+=1
                         write_eqn(mml, latex, imagepath, NEqn)
                         NEqn+=1
-                    elif (tok_len>=50 and tok_len < 100) and (count_100 <= 35000):
-                        count_100+=1
-                        write_eqn(mml, latex, imagepath, NEqn)
-                        NEqn+=1
-                    elif (tok_len>=100 and tok_len < 150) and (count_150 <= 25000):
-                        count_150+=1
-                        write_eqn(mml, latex, imagepath, NEqn)
-                        NEqn+=1
-                    elif (tok_len>=150 and tok_len < 200) and (count_200 <= 12000):
-                        count_200+=1
-                        write_eqn(mml, latex, imagepath, NEqn)
-                        NEqn+=1
-                    elif (tok_len>=200 and tok_len < 250) and (count_250 <= 5000):
-                        count_250+=1
-                        write_eqn(mml, latex, imagepath, NEqn)
-                        NEqn+=1
-                    elif (tok_len>=250 and tok_len < 300) and (count_300 <= 2000):
-                        count_300+=1
-                        write_eqn(mml, latex, imagepath, NEqn)
-                        NEqn+=1
-                    elif (tok_len>=300) and (count_gt300 <= 1000):
-                        count_gt300+=1
-                        write_eqn(mml, latex, imagepath, NEqn)
-                        NEqn+=1
+                    # elif (tok_len>=50 and tok_len < 100) and (count_100 <= 35000):
+                    #     count_100+=1
+                    #     write_eqn(mml, latex, imagepath, NEqn)
+                    #     NEqn+=1
+                    # elif (tok_len>=100 and tok_len < 150) and (count_150 <= 25000):
+                    #     count_150+=1
+                    #     write_eqn(mml, latex, imagepath, NEqn)
+                    #     NEqn+=1
+                    # elif (tok_len>=150 and tok_len < 200) and (count_200 <= 12000):
+                    #     count_200+=1
+                    #     write_eqn(mml, latex, imagepath, NEqn)
+                    #     NEqn+=1
+                    # elif (tok_len>=200 and tok_len < 250) and (count_250 <= 5000):
+                    #     count_250+=1
+                    #     write_eqn(mml, latex, imagepath, NEqn)
+                    #     NEqn+=1
+                    # elif (tok_len>=250 and tok_len < 300) and (count_300 <= 2000):
+                    #     count_300+=1
+                    #     write_eqn(mml, latex, imagepath, NEqn)
+                    #     NEqn+=1
+                    # elif (tok_len>=300) and (count_gt300 <= 1000):
+                    #     count_gt300+=1
+                    #     write_eqn(mml, latex, imagepath, NEqn)
+                    #     NEqn+=1
 
     else:
         break
