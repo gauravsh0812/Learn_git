@@ -61,9 +61,10 @@ for folder in etree_list:
                 mml = open(mmlpath).readlines()[0]
 
                 if (len(latex)>10) and (len(mml.split())>5) and ("&#xA0" not in mml):
-                    print(NEqn)
+
                     tok_mml, tok_len = token_main(mml)
                     if (tok_len < 50):# and (count_50 <= 10000):
+                        print(NEqn)
                         count_50+=1
                         write_eqn(mml, latex, imagepath, NEqn)
                         NEqn+=1
