@@ -6,7 +6,7 @@ from multiprocessing import Pool, Lock, TimeoutError
 
 random.seed(20)
 
-Length, Num = 50, 10000
+Lengthlower, Lengthupper, Num = 50, 100, 10000
 omml = open("OMML-90K-dataset/OMML_lte50-10K.txt", "w")
 olatex = open("OMML-90K-dataset/OLATEX_lte50-10K.txt", "w")
 trackfile = open("OMML-90K-dataset/trackfile_lte50.txt", "w")
@@ -48,9 +48,10 @@ while keep_going:
     etrees = os.path.join(p1, "etree")
     etree_list = random.sample(os.listdir(etrees),10)
 
+    if NEqn%1000==0:print(NEqn)
+    
     for folder in etree_list:
-        if NEqn<=91000:
-            if NEqn%1000==0:print(NEqn)
+        if NEqn<=Num:
             p2 = os.path.join(etrees, folder)
             for tyf in os.listdir(p2):
                 p3 = os.path.join(p2, tyf)
@@ -69,7 +70,7 @@ while keep_going:
                     if (len(latex)>10) and (len(mml.split())>5) and ("&#xA0" not in mml):
 
                         tok_mml, tok_len = token_main(mml)
-                        if (tok_len < Length)and (count_50 <= Num):
+                        if (tok_len>=Lengthlower and tok_len < Lengthupper):#and (count_50 <= Num):
                             count_50+=1
                             image_name = f"20{yr}_{yr}{month}_{folder}_{tyf[0]}_{eqn_num}"
                             write_eqn(mml, latex, imagepath, image_name)
