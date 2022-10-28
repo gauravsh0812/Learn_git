@@ -48,7 +48,7 @@ while keep_going:
     etrees = os.path.join(p1, "etree")
     etree_list = random.sample(os.listdir(etrees),5)
 
-    if NEqn%1000==0:print(NEqn)
+    print(NEqn)
 
     for folder in etree_list:
         if NEqn<=Num:
