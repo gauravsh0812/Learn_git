@@ -45,6 +45,7 @@ etree_list = random.sample(os.listdir(etrees),10)
 
 for folder in etree_list:
     if NEqn<=10000:
+        print(NEqn)
         p2 = os.path.join(etrees, folder)
         for tyf in os.listdir(p2):
             p3 = os.path.join(p2, tyf)
@@ -64,7 +65,6 @@ for folder in etree_list:
 
                     tok_mml, tok_len = token_main(mml)
                     if (tok_len < 50):# and (count_50 <= 10000):
-                        print(NEqn)
                         count_50+=1
                         write_eqn(mml, latex, imagepath, NEqn)
                         NEqn+=1
@@ -94,4 +94,6 @@ for folder in etree_list:
                     #     NEqn+=1
 
     else:
+        print("breaking at...")
+        print(NEqn)
         break
