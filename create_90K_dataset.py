@@ -6,8 +6,10 @@ from multiprocessing import Pool, Lock, TimeoutError
 
 random.seed(20)
 
-omml = open("OMML-90K-dataset/OMML-90K.txt", "w")
-olatex = open("OMML-90K-dataset/OLATEX-90K.txt", "w")
+Length, Num = 50, 10000
+omml = open("OMML-90K-dataset/OMML_lte50-10K.txt", "w")
+olatex = open("OMML-90K-dataset/OLATEX_lte50-10K.txt", "w")
+trackfile = open("OMML-90K-dataset/trackfile_lte50.txt", "w")
 
 root = "/projects/temporary/automates/er/gaurav/complete_data"
 
@@ -23,8 +25,8 @@ months = ["01", "02", "03", "04",
                   "05", "06", "07", "08",
                             "09", "10", "11", "12"]
 
-def write_eqn(mml, latex, imagepath, NEqn):
-        #print(NEqn)
+def write_eqn(mml, latex, imagepath, image_name):
+
         if "\n" not in mml:
             mml=mml+"\n"
         omml.write(mml)
@@ -33,10 +35,11 @@ def write_eqn(mml, latex, imagepath, NEqn):
             latex=latex+"\n"
         olatex.write(latex)
 
-        dst = f"OMML-90K-dataset/IMAGES-90K/{NEqn}.png"
+        dst = f"OMML-90K-dataset/IMAGES-90K/{image_name}.png"
         shutil.copyfile(imagepath, dst)
 
 NEqn = 0
+
 keep_going = True
 while keep_going:
     yr = str(random.sample(years, 1)[0])
@@ -66,34 +69,38 @@ while keep_going:
                     if (len(latex)>10) and (len(mml.split())>5) and ("&#xA0" not in mml):
 
                         tok_mml, tok_len = token_main(mml)
-                        if (tok_len < 50)and (count_50 <= 10000):
+                        if (tok_len < Length)and (count_50 <= Num):
                             count_50+=1
-                            write_eqn(mml, latex, imagepath, NEqn)
+                            image_name = f"20{yr}_{yr}{month}_{folder}_{tyf[0]}_{eqn_num}"
+                            write_eqn(mml, latex, imagepath, image_name)
+                            trackfile.write(f"{NEqn} \t\t {image_name} \n")
                             NEqn+=1
-                        elif (tok_len>=50 and tok_len < 100) and (count_100 <= 35000):
-                            count_100+=1
-                            write_eqn(mml, latex, imagepath, NEqn)
-                            NEqn+=1
-                        elif (tok_len>=100 and tok_len < 150) and (count_150 <= 25000):
-                            count_150+=1
-                            write_eqn(mml, latex, imagepath, NEqn)
-                            NEqn+=1
-                        elif (tok_len>=150 and tok_len < 200) and (count_200 <= 12000):
-                            count_200+=1
-                            write_eqn(mml, latex, imagepath, NEqn)
-                            NEqn+=1
-                        elif (tok_len>=200 and tok_len < 250) and (count_250 <= 5000):
-                            count_250+=1
-                            write_eqn(mml, latex, imagepath, NEqn)
-                            NEqn+=1
-                        elif (tok_len>=250 and tok_len < 300) and (count_300 <= 2000):
-                            count_300+=1
-                            write_eqn(mml, latex, imagepath, NEqn)
-                            NEqn+=1
-                        elif (tok_len>=300) and (count_gt300 <= 1000):
-                            count_gt300+=1
-                            write_eqn(mml, latex, imagepath, NEqn)
-                            NEqn+=1
+
+
+                        # elif (tok_len>=50 and tok_len < 100) and (count_100 <= 35000):
+                        #     count_100+=1
+                        #     write_eqn(mml, latex, imagepath, NEqn)
+                        #     NEqn+=1
+                        # elif (tok_len>=100 and tok_len < 150) and (count_150 <= 25000):
+                        #     count_150+=1
+                        #     write_eqn(mml, latex, imagepath, NEqn)
+                        #     NEqn+=1
+                        # elif (tok_len>=150 and tok_len < 200) and (count_200 <= 12000):
+                        #     count_200+=1
+                        #     write_eqn(mml, latex, imagepath, NEqn)
+                        #     NEqn+=1
+                        # elif (tok_len>=200 and tok_len < 250) and (count_250 <= 5000):
+                        #     count_250+=1
+                        #     write_eqn(mml, latex, imagepath, NEqn)
+                        #     NEqn+=1
+                        # elif (tok_len>=250 and tok_len < 300) and (count_300 <= 2000):
+                        #     count_300+=1
+                        #     write_eqn(mml, latex, imagepath, NEqn)
+                        #     NEqn+=1
+                        # elif (tok_len>=300) and (count_gt300 <= 1000):
+                        #     count_gt300+=1
+                        #     write_eqn(mml, latex, imagepath, NEqn)
+                        #     NEqn+=1
 
         else:
             keep_going=False
