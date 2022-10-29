@@ -6,10 +6,10 @@ from multiprocessing import Pool, Lock, TimeoutError
 
 random.seed(20)
 
-Lengthlower, Lengthupper, Num = 250, 300, 2000
-omml = open("OMML-90K-dataset/OMML_lte300-2K.txt", "w")
-olatex = open("OMML-90K-dataset/OLATEX_lte300-2K.txt", "w")
-trackfile = open("OMML-90K-dataset/trackfile_lte300.txt", "w")
+Lengthlower, Lengthupper, Num = 300, 1000,1000
+omml = open("OMML-90K-dataset/OMML_ltegt300-1K.txt", "w")
+olatex = open("OMML-90K-dataset/OLATEX_ltegt300-1K.txt", "w")
+trackfile = open("OMML-90K-dataset/trackfile_ltegt300.txt", "w")
 
 root = "/projects/temporary/automates/er/gaurav/complete_data"
 
